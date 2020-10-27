@@ -13,4 +13,4 @@
 
 ### Class Github Page
 
-[IE 360](https://github.com/BU-IE-360)
+[IE 582](https://github.com/BU-IE-582)
