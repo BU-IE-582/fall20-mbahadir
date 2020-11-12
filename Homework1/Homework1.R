@@ -46,6 +46,62 @@ lines(xfit2, yfit2, col="blue", lwd=2)
 
 #TASK 2
 
+df_Bet365=df[,c(8,25,26,27)]
+df_BetAndWin=df[,c(8,28,29,30)]
+df_Pinnacle=df[,c(8,34,35,36)]
+df_IW=df[,c(8,31,32,33)]
+
+###PART 1
+df_Bet365$home_prob=1/df_Bet365$B365H
+df_Bet365$draw_prob=1/df_Bet365$B365D
+df_Bet365$away_prob=1/df_Bet365$B365A
+
+df_BetAndWin$home_prob=1/df_BetAndWin$BWH
+df_BetAndWin$draw_prob=1/df_BetAndWin$BWD
+df_BetAndWin$away_prob=1/df_BetAndWin$BWA
+
+df_Pinnacle$home_prob=1/df_Pinnacle$PSH
+df_Pinnacle$draw_prob=1/df_Pinnacle$PSD
+df_Pinnacle$away_prob=1/df_Pinnacle$PSA
+
+df_IW$home_prob=1/df_IW$IWH
+df_IW$draw_prob=1/df_IW$IWD
+df_IW$away_prob=1/df_IW$IWA
+
+###PART 2
+df_Bet365$total_prob=df_Bet365$home_prob+df_Bet365$draw_prob+df_Bet365$away_prob
+df_Bet365$normalized_home_prob=(1/df_Bet365$B365H)/df_Bet365$total_prob
+df_Bet365$normalized_draw_prob=(1/df_Bet365$B365D)/df_Bet365$total_prob
+df_Bet365$normalized_away_prob=(1/df_Bet365$B365A)/df_Bet365$total_prob
+#sum(df_Bet365[,c(8,9,10)])
+
+df_BetAndWin$total_prob=df_BetAndWin$home_prob+df_BetAndWin$draw_prob+df_BetAndWin$away_prob
+df_BetAndWin$normalized_home_prob=(1/df_BetAndWin$BWH)/df_BetAndWin$total_prob
+df_BetAndWin$normalized_draw_prob=(1/df_BetAndWin$BWD)/df_BetAndWin$total_prob
+df_BetAndWin$normalized_away_prob=(1/df_BetAndWin$BWA)/df_BetAndWin$total_prob
+#sum(df_BetAndWin[,c(8,9,10)])
+
+df_Pinnacle$total_prob=df_Pinnacle$home_prob+df_Pinnacle$draw_prob+df_Pinnacle$away_prob
+df_Pinnacle$normalized_home_prob=(1/df_Pinnacle$PSH)/df_Pinnacle$total_prob
+df_Pinnacle$normalized_draw_prob=(1/df_Pinnacle$PSD)/df_Pinnacle$total_prob
+df_Pinnacle$normalized_away_prob=(1/df_Pinnacle$PSA)/df_Pinnacle$total_prob
+#sum(df_Pinnacle[,c(8,9,10)])
+
+df_IW$total_prob=df_IW$home_prob+df_IW$draw_prob+df_IW$away_prob
+df_IW$normalized_home_prob=(1/df_IW$IWH)/df_IW$total_prob
+df_IW$normalized_draw_prob=(1/df_IW$IWD)/df_IW$total_prob
+df_IW$normalized_away_prob=(1/df_IW$IWA)/df_IW$total_prob
+#sum(df_IW[,c(8,9,10)])
+
+str(df_Bet365)
+###PART 3
+ggplot(df_Bet365,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='identity', width  = 0.2)+xlim(-1,1)
+
+ggplot(df_BetAndWin,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='identity', width  = 0.2)+xlim(-1,1)
+
+ggplot(df_Pinnacle,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='identity', width  = 0.2)+xlim(-1,1)
+
+ggplot(df_IW,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='identity', width  = 0.2)+xlim(-1,1)
 
 
 
