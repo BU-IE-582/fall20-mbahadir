@@ -1,4 +1,4 @@
-df_all=read.csv("E0.csv")
+df_all=fread("E0.csv")
 str(df_all)
 df=df_all[,1:56]
 str(df)
@@ -95,7 +95,6 @@ df_IW$normalized_away_prob=(1/df_IW$IWA)/df_IW$total_prob
 
 str(df_Bet365)
 ###PART 3
-ggplot(df_Bet365,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='identity', width  = 0.2)+xlim(-1,1)
 
 ggplot(df_BetAndWin,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='identity', width  = 0.2)+xlim(-1,1)
 
@@ -104,4 +103,38 @@ ggplot(df_Pinnacle,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='ident
 ggplot(df_IW,aes(x=home_prob-away_prob,y=draw_prob))+ geom_bar(stat='identity', width  = 0.2)+xlim(-1,1)
 
 
+#################3
+a<-seq(-1,1,by=0.2)
+#df_Bet365, draw:=FALSE][FTR=="D", draw:=TRUE]
 
+install.packages("comprehenr")
+library(comprehenr)
+min_int=min(df_Bet365$categ)
+max_int=max(df_Bet365$categ)
+
+table(df_Bet365$categ)
+df_Bet365$categ=to_vec(for(posi in 1:78) for(i in a) 
+  if(i>(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]) && 
+     i<(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]+0.2)) i) 
+
+df<-tapply(df_Bet365$draw, df_Bet365$categ, mean)
+
+
+df_Bet365[,tot_cat_per:=NULL]
+
+str(df_Bet365)
+ggplot(df_Bet365,aes(x=categ,y=draw_prob))+ geom_bar(stat='identity',fill="black")+
+  scale_x_discrete(limits=seq(-1,1,0.2))+labs(x="Draw",y="Draw Prob")+
+  geom_bar(aes(x=categ, y=draw),stat="identity",fill="yellow",alpha=.3)
+
+
+table(df_Bet365$categ,df_Bet365$draw)
+
+table(df_Bet365$categ)
+
+    
+
+    
+    
+  
+  
