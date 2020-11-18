@@ -1,4 +1,3 @@
-
 df_all=fread("E0.csv")
 str(df_all)
 df=df_all[,1:56]
