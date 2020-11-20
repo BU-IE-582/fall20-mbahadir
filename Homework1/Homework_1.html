@@ -18759,7 +18759,7 @@ AQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIV+B9zauImEoY8vwAAAABJRU5ErkJggg=="
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">a</span><span class="o">&lt;-</span><span class="nf">seq</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">0.2</span><span class="p">)</span>
@@ -20738,7 +20738,7 @@ pIlA2owEJCABCUhAAhKQgAQkMH8CPwEMos2ybCWSagAAAABJRU5ErkJggg=="
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df_Bet365</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">draw_prob</span><span class="p">))</span><span class="o">+</span> <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun.y</span><span class="o">=</span><span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span><span class="o">+</span>
@@ -30228,7 +30228,7 @@ AABJRU5ErkJggg=="
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>For each bookmaker, bias is existing. In general, a bias is observed in (0, 0.2] bin. For this bin, the difference can be caused by experts deciding probabilities in the bookmakers. All bookmakers have a bias for the (0, 0.2] bin, which can be understood by checking how many points are located above the actual probability. Much as IW's actual probability is less than determined probability, it is the closest bin for actual probability. In addition, it can be said that bookmakers add extra margin to determined probability to save money.</p>
+<p>For each bookmaker, bias is existing. In general, a bias is observed in (0, 0.2] bin. For this bin, the difference can be caused by experts deciding probabilities in the bookmakers. All bookmakers have a bias for the (0, 0.2] bin, which can be understood by checking how many points are located above the actual probability. Much as IW's actual probability is less than determined probability, it is the closest bin for actual probability. In addition, it can be said that bookmakers add extra margin to determined probability to save money. Moreover, all bookmakers have the same biases for the same bins. (0, 0.2] and (0.2, 0.4] are the most proper bins for betting, and this is existing for all bookmakers.</p>
 
 </div>
 </div>
@@ -30244,7 +30244,7 @@ AABJRU5ErkJggg=="
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">df_Bet365_wt_red</span><span class="o">=</span><span class="n">df_Bet365</span><span class="p">[</span><span class="n">HR</span><span class="o">!=</span><span class="m">1</span><span class="o">&amp;</span><span class="n">AR</span><span class="o">!=</span><span class="m">1</span><span class="p">]</span>
@@ -32196,7 +32196,7 @@ AAECBAgQKAlokEqQwhAgQIAAAQIECBAgMF/gBSzcWl3ba4vWAAAAAElFTkSuQmCC"
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">df_Bet365_wt_red</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">draw_prob</span><span class="p">))</span><span class="o">+</span> <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun.y</span><span class="o">=</span><span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span><span class="o">+</span>
@@ -33016,7 +33016,7 @@ XQQZ15bXAAAAAElFTkSuQmCC"
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>After removing the red cards, still there is a bias in the previously determined bin. Again, profit can be achieved in long run by betting matches in (0, 0.2] bin.</p>
+<p>After removing the red cards, still there is a bias in the previously determined bin. Again, profit can be achieved in long run by betting matches in (0, 0.2] bin. Namely, red cards didn't have too much affect on the exisiting bias.</p>
 
 </div>
 </div>
@@ -41826,7 +41826,7 @@ QCBlgf8H898hpXqgBN8AAAAASUVORK5CYII="
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Again, biases are existing for each bookmaker after removing the matches with red cards. So, it can be said that actual draw probability for matches in determining bins have biases. And profit in long run can be obtained by betting matches in (0, 0.2] bin. Namely, red cards doesn't too much effect on the results.</p>
+<p>Again, biases are existing for each bookmaker after removing the matches with red cards. So, it can be said that actual draw probability for matches in determining bins have biases. And profit in long run can be obtained by betting matches in (0, 0.2] bin. Namely, red cards doesn't too much effect on the results. The second most proper bin for betting is (0.2, 0.4].</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
