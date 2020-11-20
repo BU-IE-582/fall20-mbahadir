@@ -1,6 +1,9 @@
 library(data.table)
-df_all=fread("E0.csv")
-df=df_all[,1:56]
+df_1=fread("E0.csv")
+df_2=fread("E0-2.csv")
+df_3=fread("E0-3.csv")
+joints <- intersect(colnames(df_3), colnames(df_1[,1:56]))
+df<-rbind(subset(df_1, select = joints), subset(df_2, select = joints),subset(df_3, select=joints))
 library(ggplot2)
 
 hist(df$FTHG, ylab="Number of Games", xlab="Home Goals",main="Histogram of Home Goals")
@@ -40,10 +43,10 @@ yfit1_exponential<-dexp(xfit1,rate=1/mean(x1),log = FALSE)
 yfit1_exponential <- yfit1_exponential*diff(hist2$mids[1:2])*length(x1) 
 lines(xfit1, yfit1_exponential, col="red", lwd=2)
 
-df_Bet365=df[,c(8,23,24,25,26,27)]
-df_BetAndWin=df[,c(8,23,24,28,29,30)]
-df_Pinnacle=df[,c(8,23,24,34,35,36)]
-df_IW=df[,c(8,23,24,31,32,33)]
+df_Bet365=df[,c(7,22,23,24,25,26)]
+df_BetAndWin=df[,c(7,22,23,27,28,29)]
+df_Pinnacle=df[,c(7,22,23,33,34,35)]
+df_IW=df[,c(7,22,23,30,31,32)]
 
 df_Bet365$home_prob=1/df_Bet365$B365H
 df_Bet365$draw_prob=1/df_Bet365$B365D
@@ -83,11 +86,11 @@ df_IW$normalized_away_prob=(1/df_IW$IWA)/df_IW$total_prob
 
 library(comprehenr)
 
-a<-seq(-1,0.8,by=0.2)
+a<-seq(-1,1,by=0.2)
 df_Bet365$diff=df_Bet365$home_prob-df_Bet365$away_prob
-df_Bet365$categ<-to_vec(for(posi in 1:78) for(i in a) 
-  if(i>(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]) && 
-     i<=(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
+df_Bet365$categ<-to_vec(for(posi in 1:838) for(i in a) 
+  if(i>=(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]) && 
+     i<(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
 df_Bet365[categ==0, bins:="(-1, -0.8]"]
 df_Bet365[categ==1, bins:="(-0.8, -0.6]"]
@@ -121,7 +124,7 @@ ggplot(df_Bet365,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar"
            fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
 
 df_BetAndWin$diff=df_BetAndWin$home_prob-df_BetAndWin$away_prob
-df_BetAndWin$categ<-to_vec(for(posi in 1:78) for(i in a) 
+df_BetAndWin$categ<-to_vec(for(posi in 1:838) for(i in a) 
   if(i>=(df_BetAndWin$home_prob[posi]-df_BetAndWin$away_prob[posi]) && 
      i<(df_BetAndWin$home_prob[posi]-df_BetAndWin$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
@@ -146,7 +149,7 @@ determined_bins <- factor(c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4
                           ordered = T)
 df_BetAndWin[,real_draw_prob:=mean(draw),by=categ]
 ggplot(df_BetAndWin,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
-  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Bet and Win")+ xlim(-1,1)+
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Bet and Win")+
   geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
   scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
 
@@ -156,7 +159,7 @@ ggplot(df_BetAndWin,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="b
            fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
 
 df_IW$diff=df_IW$home_prob-df_IW$away_prob
-df_IW$categ<-to_vec(for(posi in 1:78) for(i in a) 
+df_IW$categ<-to_vec(for(posi in 1:838) for(i in a) 
   if(i>=(df_IW$home_prob[posi]-df_IW$away_prob[posi]) && 
      i<(df_IW$home_prob[posi]-df_IW$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
@@ -192,8 +195,8 @@ ggplot(df_IW,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
            fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
 
 df_Pinnacle$diff=df_Pinnacle$home_prob-df_Pinnacle$away_prob
-df_Pinnacle$categ<-to_vec(for(posi in 1:78) for(i in a) 
-  if(i>(df_Pinnacle$home_prob[posi]-df_Pinnacle$away_prob[posi]) && 
+df_Pinnacle$categ<-to_vec(for(posi in 1:838) for(i in a) 
+  if(i>=(df_Pinnacle$home_prob[posi]-df_Pinnacle$away_prob[posi]) && 
      i<=(df_Pinnacle$home_prob[posi]-df_Pinnacle$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
 df_Pinnacle[categ==0, bins:=determined_bins[1]]
