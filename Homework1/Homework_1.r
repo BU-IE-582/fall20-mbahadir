@@ -1,10 +1,6 @@
 library(data.table)
 df_all=fread("E0.csv")
-str(df_all)
 df=df_all[,1:56]
-class(df)
-str(df)
-summary(df)
 library(ggplot2)
 
 hist(df$FTHG, ylab="Number of Games", xlab="Home Goals",main="Histogram of Home Goals")
