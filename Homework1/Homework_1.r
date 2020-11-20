@@ -16,9 +16,10 @@ hist(df$FTHG-df$FTAG, ylab="Number of Games", xlab="HHome goals – Away Goals",
 hist1<-hist(df$FTHG, ylab="Number of Games", xlab="Home Goals",main="Histogram of Home Goals")
 x <- df$FTHG
 xfit<-seq(min(x),max(x),length=78) 
-yfit_pois<-dpois(as.integer(xfit),lambda=1/mean(x),log = FALSE)
+xfit_discreate<-seq(min(x),max(x),by=1) 
+yfit_pois<-dpois(xfit_discreate,lambda=mean(x),log = FALSE)
 yfit_pois<- yfit_pois*diff(hist1$mids[1:2])*length(x) 
-lines(xfit, yfit_pois, col="green", lwd=2)
+lines(xfit_discreate, yfit_pois, col="green", lwd=2)
 
 yfit_normal<-dnorm(xfit,mean=mean(x),sd=sd(x)) 
 yfit_normal<- yfit_normal*diff(hist1$mids[1:2])*length(x) 
@@ -31,9 +32,10 @@ lines(xfit, yfit_exponential, col="red", lwd=2)
 hist2<-hist(df$FTAG, ylab="Number of Games", xlab="Away Goals",main="Histogram of Away Goals")
 x1 <- df$FTAG
 xfit1<-seq(min(x1),max(x1),length=78) 
-yfit1_pois<-dpois(as.integer(xfit1),lambda=1/mean(x1),log = FALSE)
+xfit1_discreate<-seq(min(x),max(x),by=1) 
+yfit1_pois<-dpois(xfit1_discreate,lambda=mean(x1),log = FALSE)
 yfit1_pois<- yfit1_pois*diff(hist2$mids[1:2])*length(x1) 
-lines(xfit1, yfit1_pois, col="green", lwd=2)
+lines(xfit1_discreate, yfit1_pois, col="green", lwd=2)
 
 yfit1_normal<-dnorm(xfit1,mean=mean(x1),sd=sd(x1)) 
 yfit1_normal <- yfit1_normal*diff(hist2$mids[1:2])*length(x1) 
