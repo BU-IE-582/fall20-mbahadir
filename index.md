@@ -11,7 +11,9 @@
 
 ## WEEK 1
 
-[here](Homework1\Homework_1.html) is Homework 1
+[here](Homework1\Homework_1.html) is HTML format for Homework 1
+
+[here](Homework1\Homework_1.r) is R script for Homework 1
 
 
 ### Class Github Page

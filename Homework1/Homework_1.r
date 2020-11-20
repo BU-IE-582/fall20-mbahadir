@@ -1,3 +1,4 @@
+library(data.table)
 df_all=fread("E0.csv")
 str(df_all)
 df=df_all[,1:56]
@@ -5,57 +6,48 @@ class(df)
 str(df)
 summary(df)
 library(ggplot2)
-library(data.table)
-##############################################################################################################
-#TASK 1
-###Part 1
-#-------------------------------------------------------------------------------------------------------------
+
 hist(df$FTHG, ylab="Number of Games", xlab="Home Goals",main="Histogram of Home Goals")
+
 hist(df$FTAG, ylab="Number of Games", xlab="Away Goals",main="Histogram of Away Goals")
+
 hist(df$FTHG-df$FTAG, ylab="Number of Games", xlab="HHome goals – Away Goals",
      main="Histogram of Difference")
-###Part 2
-#-------------------------------------------------------------------------------------------------------------
 
 hist1<-hist(df$FTHG, ylab="Number of Games", xlab="Home Goals",main="Histogram of Home Goals")
 x <- df$FTHG
 xfit<-seq(min(x),max(x),length=78) 
-yfit<-dnorm(xfit,mean=mean(x),sd=sd(x)) 
-yfit <- yfit*diff(hist1$mids[1:2])*length(x) 
-lines(xfit, yfit, col="blue", lwd=2)
+yfit_pois<-dpois(as.integer(xfit),lambda=1/mean(x),log = FALSE)
+yfit_pois<- yfit_pois*diff(hist1$mids[1:2])*length(x) 
+lines(xfit, yfit_pois, col="green", lwd=2)
 
-yfite<-dexp(xfit,rate=1/mean(x),log = FALSE) 
-yfite <- yfite*diff(hist1$mids[1:2])*length(x) 
-lines(xfit, yfite, col="blue", lwd=2)
+yfit_normal<-dnorm(xfit,mean=mean(x),sd=sd(x)) 
+yfit_normal<- yfit_normal*diff(hist1$mids[1:2])*length(x) 
+lines(xfit, yfit_normal, col="blue", lwd=2)
 
-##############################
-#-------------------------------------------------------------------------------------------------------------
+yfit_exponential<-dexp(xfit,rate=1/mean(x),log = FALSE) 
+yfit_exponential <- yfit_exponential*diff(hist1$mids[1:2])*length(x) 
+lines(xfit, yfit_exponential, col="red", lwd=2)
 
 hist2<-hist(df$FTAG, ylab="Number of Games", xlab="Away Goals",main="Histogram of Away Goals")
 x1 <- df$FTAG
 xfit1<-seq(min(x1),max(x1),length=78) 
-yfit1<-dnorm(xfit1,mean=mean(x1),sd=sd(x1)) 
-yfit1 <- yfit1*diff(hist2$mids[1:2])*length(x1) 
-lines(xfit1, yfit1, col="blue", lwd=2)
+yfit1_pois<-dpois(as.integer(xfit1),lambda=1/mean(x1),log = FALSE)
+yfit1_pois<- yfit1_pois*diff(hist2$mids[1:2])*length(x1) 
+lines(xfit1, yfit1_pois, col="green", lwd=2)
 
-##############################
-#-------------------------------------------------------------------------------------------------------------
+yfit1_normal<-dnorm(xfit1,mean=mean(x1),sd=sd(x1)) 
+yfit1_normal <- yfit1_normal*diff(hist2$mids[1:2])*length(x1) 
+lines(xfit1, yfit1_normal, col="blue", lwd=2)
 
-hist3<-hist(df$FTHG-df$FTAG, ylab="Number of Games", xlab="HHome goals – Away Goals",
-     main="Histogram of Difference")
-x2 <- df$FTHG-df$FTAG
-xfit2<-seq(min(x2),max(x2),length=78) 
-yfit2<-dnorm(xfit2,mean=mean(x2),sd=sd(x2)) 
-yfit2 <- yfit2*diff(hist2$mids[1:2])*length(x2) 
-lines(xfit2, yfit2, col="blue", lwd=2)
-##############################################################################################################
-#TASK 2
+yfit1_exponential<-dexp(xfit1,rate=1/mean(x1),log = FALSE) 
+yfit1_exponential <- yfit1_exponential*diff(hist2$mids[1:2])*length(x1) 
+lines(xfit1, yfit1_exponential, col="red", lwd=2)
+
 df_Bet365=df[,c(8,23,24,25,26,27)]
 df_BetAndWin=df[,c(8,23,24,28,29,30)]
 df_Pinnacle=df[,c(8,23,24,34,35,36)]
 df_IW=df[,c(8,23,24,31,32,33)]
-###Part 1
-#-------------------------------------------------------------------------------------------------------------
 
 df_Bet365$home_prob=1/df_Bet365$B365H
 df_Bet365$draw_prob=1/df_Bet365$B365D
@@ -72,46 +64,34 @@ df_Pinnacle$away_prob=1/df_Pinnacle$PSA
 df_IW$home_prob=1/df_IW$IWH
 df_IW$draw_prob=1/df_IW$IWD
 df_IW$away_prob=1/df_IW$IWA
-#----
-#Part 2
-#-------------------------------------------------------------------------------------------------------------
 
 df_Bet365$total_prob=df_Bet365$home_prob+df_Bet365$draw_prob+df_Bet365$away_prob
 df_Bet365$normalized_home_prob=(1/df_Bet365$B365H)/df_Bet365$total_prob
 df_Bet365$normalized_draw_prob=(1/df_Bet365$B365D)/df_Bet365$total_prob
 df_Bet365$normalized_away_prob=(1/df_Bet365$B365A)/df_Bet365$total_prob
-#sum(df_Bet365[,c(8,9,10)])
 
 df_BetAndWin$total_prob=df_BetAndWin$home_prob+df_BetAndWin$draw_prob+df_BetAndWin$away_prob
 df_BetAndWin$normalized_home_prob=(1/df_BetAndWin$BWH)/df_BetAndWin$total_prob
 df_BetAndWin$normalized_draw_prob=(1/df_BetAndWin$BWD)/df_BetAndWin$total_prob
 df_BetAndWin$normalized_away_prob=(1/df_BetAndWin$BWA)/df_BetAndWin$total_prob
-#sum(df_BetAndWin[,c(8,9,10)])
 
 df_Pinnacle$total_prob=df_Pinnacle$home_prob+df_Pinnacle$draw_prob+df_Pinnacle$away_prob
 df_Pinnacle$normalized_home_prob=(1/df_Pinnacle$PSH)/df_Pinnacle$total_prob
 df_Pinnacle$normalized_draw_prob=(1/df_Pinnacle$PSD)/df_Pinnacle$total_prob
 df_Pinnacle$normalized_away_prob=(1/df_Pinnacle$PSA)/df_Pinnacle$total_prob
-#sum(df_Pinnacle[,c(8,9,10)])
 
 df_IW$total_prob=df_IW$home_prob+df_IW$draw_prob+df_IW$away_prob
 df_IW$normalized_home_prob=(1/df_IW$IWH)/df_IW$total_prob
 df_IW$normalized_draw_prob=(1/df_IW$IWD)/df_IW$total_prob
 df_IW$normalized_away_prob=(1/df_IW$IWA)/df_IW$total_prob
-#sum(df_IW[,c(8,9,10)])
 
-str(df_Bet365)
-#------
-#Part 3
-#-------------------------------------------------------------------------------------------------------------
-install.packages("comprehenr")
 library(comprehenr)
 
 a<-seq(-1,0.8,by=0.2)
 df_Bet365$diff=df_Bet365$home_prob-df_Bet365$away_prob
 df_Bet365$categ<-to_vec(for(posi in 1:78) for(i in a) 
-  if(i>=(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]) && 
-     i<(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]+0.2)) as.integer((i+1)/0.2))
+  if(i>(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]) && 
+     i<=(df_Bet365$home_prob[posi]-df_Bet365$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
 df_Bet365[categ==0, bins:="(-1, -0.8]"]
 df_Bet365[categ==1, bins:="(-0.8, -0.6]"]
@@ -127,29 +107,27 @@ df_Bet365[categ==9, bins:="(0.8, 1]"]
 df_Bet365[FTR=="D",draw:=1]
 df_Bet365[FTR=="H",draw:=0]
 df_Bet365[FTR=="A",draw:=0]
-determined_bins <- factor(c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4, -0.2]",
-                  "(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"),
-                levels = c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4, -0.2]",
-                           "(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"),
-                ordered = T)
+#determined_bins <- factor(c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4, -0.2]",
+    #              "(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"),
+     #           levels = c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4, -0.2]",
+      #                     "(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"),
+       #         ordered = T)
 df_Bet365[,real_draw_prob:=mean(draw),by=categ]
-table(df_Bet365$bins,df_Bet365$draw)
+#table(df_Bet365$bins,df_Bet365$draw)
+ggplot(df_Bet365,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Bet 365")+ 
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
+
 ggplot(df_Bet365,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("Bet 365")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("Bet 365")+
   geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
-           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))#)+
-  #scale_x_discrete(breaks = 0:9, labels = c("(-1, -0.8]", "(-0.8, -0.6]","(-0.6, -0.4]","(-0.4, -0.2]",
-                               #"(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"))+
-  #xlim(0:9)
-table(df_Bet365$bins,df_Bet365$draw)
-#------
-#Part 4
-#-------------------------------------------------------------------------------------------------------------
+           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
 
 df_BetAndWin$diff=df_BetAndWin$home_prob-df_BetAndWin$away_prob
 df_BetAndWin$categ<-to_vec(for(posi in 1:78) for(i in a) 
   if(i>=(df_BetAndWin$home_prob[posi]-df_BetAndWin$away_prob[posi]) && 
-     i<(df_BetAndWin$home_prob[posi]-df_BetAndWin$away_prob[posi]+0.2)) as.integer((i+1)/0.2))
+     i<(df_BetAndWin$home_prob[posi]-df_BetAndWin$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
 df_BetAndWin[categ==0, bins:="(-1, -0.8]"]
 df_BetAndWin[categ==1, bins:="(-0.8, -0.6]"]
@@ -171,21 +149,20 @@ determined_bins <- factor(c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4
                                       "(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"),
                           ordered = T)
 df_BetAndWin[,real_draw_prob:=mean(draw),by=categ]
-table(df_BetAndWin$bins,df_BetAndWin$draw)
-ggplot(df_BetAndWin,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("Bet and Win")+
-  geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
-           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))#)+
-#scale_x_discrete(breaks = 0:9, labels = c("(-1, -0.8]", "(-0.8, -0.6]","(-0.6, -0.4]","(-0.4, -0.2]",
-#"(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"))+
-#xlim(0:9)
+ggplot(df_BetAndWin,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Bet and Win")+ xlim(-1,1)+
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
 
-##############################
-#------------------------------------------------------------------------------------------------------------
+ggplot(df_BetAndWin,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("Bet and Win")+
+  geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
+           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
+
 df_IW$diff=df_IW$home_prob-df_IW$away_prob
 df_IW$categ<-to_vec(for(posi in 1:78) for(i in a) 
   if(i>=(df_IW$home_prob[posi]-df_IW$away_prob[posi]) && 
-     i<(df_IW$home_prob[posi]-df_IW$away_prob[posi]+0.2)) as.integer((i+1)/0.2))
+     i<(df_IW$home_prob[posi]-df_IW$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
 df_IW[categ==0, bins:="(-1, -0.8]"]
 df_IW[categ==1, bins:="(-0.8, -0.6]"]
@@ -207,21 +184,21 @@ determined_bins <- factor(c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4
                                       "(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"),
                           ordered = T)
 df_IW[,real_draw_prob:=mean(draw),by=categ]
-table(df_IW$bins,df_IW$draw)
-ggplot(df_IW,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("IW")+
-  geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
-           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))#)+
-#scale_x_discrete(breaks = 0:9, labels = c("(-1, -0.8]", "(-0.8, -0.6]","(-0.6, -0.4]","(-0.4, -0.2]",
-#"(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"))+
-#xlim(0:9)
+#table(df_IW$bins,df_IW$draw)
+ggplot(df_IW,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("IW")+ 
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
 
-##############################
-#------------------------------------------------------------------------------------------------------------
+ggplot(df_IW,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("IW")+
+  geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
+           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
+
 df_Pinnacle$diff=df_Pinnacle$home_prob-df_Pinnacle$away_prob
 df_Pinnacle$categ<-to_vec(for(posi in 1:78) for(i in a) 
-  if(i>=(df_Pinnacle$home_prob[posi]-df_Pinnacle$away_prob[posi]) && 
-     i<(df_Pinnacle$home_prob[posi]-df_Pinnacle$away_prob[posi]+0.2)) as.integer((i+1)/0.2))
+  if(i>(df_Pinnacle$home_prob[posi]-df_Pinnacle$away_prob[posi]) && 
+     i<=(df_Pinnacle$home_prob[posi]-df_Pinnacle$away_prob[posi]+0.2)) as.integer((i+1)/0.2)-1)
 
 df_Pinnacle[categ==0, bins:=determined_bins[1]]
 df_Pinnacle[categ==1, bins:=determined_bins[2]]
@@ -243,58 +220,63 @@ determined_bins <- factor(c( "(-1, -0.8]", "(-0.8, -0.6]", "(-0.6, -0.4]","(-0.4
                                       "(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"),
                           ordered = T)
 df_Pinnacle[,real_draw_prob:=mean(draw),by=categ]
-table(df_Pinnacle$bins,df_Pinnacle$draw)
+#table(df_Pinnacle$bins,df_Pinnacle$draw)
+ggplot(df_Pinnacle,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Pinnacle")+ 
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
+
 ggplot(df_Pinnacle,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("Pinnaccle")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("Pinnaccle")+
   geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
-           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))#)+
-#scale_x_discrete(breaks = 0:9, labels = c("(-1, -0.8]", "(-0.8, -0.6]","(-0.6, -0.4]","(-0.4, -0.2]",
-#"(-0.2, 0]","(0, 0.2]","(0.2, 0.4]","(0.4, 0.6]","(0.6, 0.8]", "(0.8, 1]"))+
-#xlim(0:9)
-#------
-#TASK 3
-#Part 1
-#---------------------
+           fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
+
 df_Bet365_wt_red=df_Bet365[HR!=1&AR!=1]
 df_Bet365_wt_red[,real_draw_prob:=mean(draw),by=categ]
+ggplot(df_Bet365_wt_red,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Bet 365(without red card)")+
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
+
 ggplot(df_Bet365_wt_red,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("Bet 365(without red card)")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("Bet 365(without red card)")+
   geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
            fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
-#-------
-#Part 2
-#---------------------
+
 df_BetAndWin_wt_red=df_BetAndWin[HR!=1&AR!=1]
 df_BetAndWin_wt_red[,real_draw_prob:=mean(draw),by=categ]
-table(df_BetAndWin_wt_red$bins,df_BetAndWin_wt_red$draw)
+ggplot(df_BetAndWin_wt_red,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Bet and Win(without red card)")+ 
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
+
 ggplot(df_BetAndWin_wt_red,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("Bet and Win(without red card)")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("Bet and Win(without red card)")+
   geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
            fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
 
-#############
-#---------------------
 df_IW_wt_red=df_IW[HR!=1&AR!=1]
 df_IW_wt_red[,real_draw_prob:=mean(draw),by=categ]
+ggplot(df_IW_wt_red,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("IW(without red card)")+ 
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
+
 ggplot(df_IW_wt_red,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("IW (without red card)")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("IW (without red card)")+
   geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
            fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
-
-#############
-#---------------------
 
 df_Pinnacle_wt_red=df_Pinnacle[HR!=1&AR!=1]
 df_Pinnacle_wt_red[,real_draw_prob:=mean(draw),by=categ]
+ggplot(df_Pinnacle_wt_red,aes(x=diff,y=draw_prob))+geom_point(color="red")+                        
+  labs(x="Difference between Probabilities",y="Probability of Draw")+ggtitle("Pinnacle(without red card)")+ 
+  geom_point(aes(x=diff, y=real_draw_prob),color="blue") + theme(axis.text.x = element_text(angle = 45,hjust = 1))+
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),limits=c(-1,1))
+
 ggplot(df_Pinnacle_wt_red,aes(x=bins,y=draw_prob))+ stat_summary(fun.y="mean", geom="bar")+
-  labs(x="Draw",y="Draw Prob")+ggtitle("Pinnacle (without red card)")+
+  labs(x="Bins",y="Probability of Draw")+ggtitle("Pinnacle (without red card)")+
   geom_bar(aes(x=bins, y=real_draw_prob),stat = "summary", fun.y = "mean",
            fill="yellow",alpha=.3) + theme(axis.text.x = element_text(angle = 45,hjust = 1))
 
-    
-
-    
-    
-  
-  
 
