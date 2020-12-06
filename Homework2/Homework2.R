@@ -1,7 +1,10 @@
 getwd()
+setwd("C:/Users/bahad/GitHub/IE582/Homework2")
 library(data.table)
 install.packages("plotly")
 library(plotly)
+
+
 x_train=fread("uWaveGestureLibrary_X_TRAIN")
 x_test=fread("uWaveGestureLibrary_X_TEST")
 y_train=fread("uWaveGestureLibrary_Y_TRAIN")
