@@ -11,9 +11,9 @@
 
 ## Homework 1
 
-[here](Homework1\Homework1.html) is the HTML file for First Homework
+[here](Homework1\Homework_1.html) is the HTML file for First Homework
 
-[here](Homework1\Homework1.r) is the R Script for First Homework
+[here](Homework1\Homework_1.r) is the R Script for First Homework
 
 ## Homework 2 
 
