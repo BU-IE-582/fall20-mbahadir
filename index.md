@@ -11,15 +11,15 @@
 
 ## Homework 1
 
-[here](Homework1\Homework_1.html) is the HTML file for First Homework
+[here](Homework1\Homework_1.html) is the HTML file for 1. Homework
 
-[here](Homework1\Homework_1.r) is the R Script for First Homework
+[here](Homework1\Homework_1.r) is the R Script for 1. Homework
 
 ## Homework 2 
 
-[here](Homework2\Homework_2.html) is the HTML file for Second Homework
+[here](Homework2\Homework_2.html) is the HTML file for 2. Homework
 
-[here](Homework2\Homework_2.r) is the R Script for Second Homework
+[here](Homework2\Homework_2.r) is the R Script for 2. Homework
 
 
 ### Class Github Page
