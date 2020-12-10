@@ -17,9 +17,9 @@
 
 ## Homework 2 
 
-[here](Homework2\Homework2.html) is the HTML file for Second Homework
+[here](Homework2\Homework_2.html) is the HTML file for Second Homework
 
-[here](Homework2\Homework2.r) is the R Script for Second Homework
+[here](Homework2\Homework_2.r) is the R Script for Second Homework
 
 
 ### Class Github Page
