@@ -182,9 +182,6 @@ autoplot(long_form_pca, data = long_form, colour = "class",
          loadings = TRUE, loadings.colour = 'blue',
          loadings.label = TRUE, loadings.label.size = 3)
 
-#long_form_pca1<- princomp(long_form[,c(3,4,5)], cor = TRUE)
-#summary(long_form_pca1,loadings=TRUE)
-
 class1=filter(long_form, time_series_id == indexes[1] | time_series_id == indexes[2]) 
 class1=mutate(class1, red_dim= 0.2325778 * X + 0.7230122  * Y + 0.6505082   * Z )
 class1$time_series_id=as.factor(class1$time_series_id)
@@ -278,18 +275,6 @@ pca_class1 <-prcomp(class1_filtered[,c(3,4,5)], center = TRUE,scale. = TRUE)
 pca_class1
 summary(pca_class1)
 
-#autoplot(pca_class1, data = class1_filtered, colour = "class",
-#         loadings = TRUE, loadings.colour = 'blue',
-#         loadings.label = TRUE, loadings.label.size = 3)
-#library(devtools)
-#library(devtools)
-#install_github("vqv/ggbiplot")
-#library(ggbiplot)
-#ggbiplot(pca_class1, obs.scale = 1, var.scale = 1,
-#  groups = pca_class1, ellipse = TRUE, circle = TRUE) +
-#  scale_color_discrete(name = '') +
-#  theme(legend.direction = 'horizontal', legend.position = 'top')
-
 pca_class2 <-prcomp(class2_filtered[,c(3,4,5)], center = TRUE,scale. = TRUE)
 pca_class2
 summary(pca_class2)
@@ -323,7 +308,6 @@ y_dis=transpose(cumsum(cumsum(transpose(y_train[,-1]))))
 z_dis=transpose(cumsum(cumsum(transpose(z_train[,-1]))))
 df_pos<-cbind(x_train[,1],x_dis,y_dis,z_dis)
 colnames(df_pos)[1] <- "class"
-#df_pos
 
 distances=dist(df_pos[,-1],method="euclidean")
 summary(distances)
@@ -336,14 +320,5 @@ dt<-data.frame(fit$points,df_pos$class)
 visualized_dist<-ggplot(dt, aes(x=X1 , y=X2,color=as.factor(df_pos.class)))+geom_point()+labs(color="Classes")+
 xlab("X Coordinate")+ylab("Y Coordinate")+theme(legend.position = "bottom")
 visualized_dist
-
-#visualized_dist<-autoplot(fit, colour= factor(df_pos$class))
-
-#visualized_dist <- visualized_dist + 
-#  ggtitle("Observations") +
-#  labs(x = "X Coordinate", y = "Y Coordinate") 
-  #labs(colour = as.factor(df_pos$class))
-  #scale_color_manual(labels = c("Male", "Female"), values = c(1, 2))
-#print(visualized_dist)
 
 
