@@ -22,6 +22,13 @@
 [here](Homework2\Homework_2.r) is the R Script for 2. Homework
 
 
+## Homework 3
+
+[here](Homework3\Homework3.html) is the HTML file for 3. Homework
+
+[here](Homework3\Homework3.r) is the R Script for 3. Homework
+
+
 ### Class Github Page
 
 [IE 582](https://github.com/BU-IE-582)
