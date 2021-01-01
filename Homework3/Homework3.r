@@ -24,6 +24,10 @@ dt$consumption=as.numeric(dt$consumption)
 dt$hour=as.numeric(dt$hour)
 str(dt)
 
+dt<-dt[-2068]
+
+str(dt)
+
 dt_lagged1=copy(dt)
 dt_lagged1[, Lag_48:=shift(consumption,type="lag",n=48)]
 dt_lagged1[, Lag_168:=shift(consumption,type="lag",n=168)]
@@ -83,6 +87,8 @@ MAPE0c_reg_values=as.vector(abs(((hour0_test$consumption-predictions0)/hour0_tes
 mape_result_c[1]<-MAPE_0
 MAPE_0
 
+summary(MAPE0c_reg_values)
+
 Reg1=lm(data=hour1_train, consumption~Lag_48+Lag_168)
 summary(Reg1)
 predictions1=predict(Reg1,newdata = hour1_test)
@@ -91,6 +97,8 @@ MAPE_1_values=as.vector(abs((hour1_test$consumption-predictions1)/length(test$co
 MAPE1c_reg_values=as.vector(abs(((hour1_test$consumption-predictions1)/hour1_test$consumption)))
 mape_result_c[2]<-MAPE_1
 MAPE_1
+
+summary(MAPE1c_reg_values)
 
 Reg2=lm(data=hour2_train, consumption~Lag_48+Lag_168)
 summary(Reg2)
@@ -101,6 +109,8 @@ MAPE2c_reg_values=as.vector(abs(((hour2_test$consumption-predictions2)/hour2_tes
 mape_result_c[3]<-MAPE_2
 MAPE_2
 
+summary(MAPE2c_reg_values)
+
 Reg3=lm(data=hour3_train, consumption~Lag_48+Lag_168)
 summary(Reg3)
 predictions3=predict(Reg3,newdata = hour3_test)
@@ -109,6 +119,8 @@ MAPE_3_values=as.vector(abs((hour3_test$consumption-predictions3)/length(test$co
 MAPE3c_reg_values=as.vector(abs(((hour3_test$consumption-predictions3)/hour3_test$consumption)))
 mape_result_c[4]<-MAPE_3
 MAPE_3
+
+summary(MAPE3c_reg_values)
 
 Reg4=lm(data=hour4_train, consumption~Lag_48+Lag_168)
 summary(Reg4)
@@ -119,6 +131,8 @@ MAPE4c_reg_values=as.vector(abs(((hour4_test$consumption-predictions4)/hour4_tes
 mape_result_c[5]<-MAPE_4
 MAPE_4
 
+summary(MAPE4c_reg_values)
+
 Reg5=lm(data=hour5_train, consumption~Lag_48+Lag_168)
 summary(Reg5)
 predictions5=predict(Reg5,newdata = hour5_test)
@@ -127,6 +141,8 @@ MAPE_5_values=as.vector(abs((hour5_test$consumption-predictions5)/length(test$co
 MAPE5c_reg_values=as.vector(abs(((hour5_test$consumption-predictions5)/hour5_test$consumption)))
 mape_result_c[6]<-MAPE_5
 MAPE_5
+
+summary(MAPE5c_reg_values)
 
 Reg6=lm(data=hour6_train, consumption~Lag_48+Lag_168)
 summary(Reg6)
@@ -137,6 +153,8 @@ MAPE6c_reg_values=as.vector(abs(((hour6_test$consumption-predictions6)/hour6_tes
 mape_result_c[7]<-MAPE_6
 MAPE_6
 
+summary(MAPE6c_reg_values)
+
 Reg7=lm(data=hour7_train, consumption~Lag_48+Lag_168)
 summary(Reg7)
 predictions7=predict(Reg7,newdata = hour7_test)
@@ -145,6 +163,8 @@ MAPE_7_values=as.vector(abs((hour7_test$consumption-predictions7)/length(test$co
 MAPE7c_reg_values=as.vector(abs(((hour7_test$consumption-predictions7)/hour7_test$consumption)))
 mape_result_c[8]<-MAPE_7
 MAPE_7
+
+summary(MAPE7c_reg_values)
 
 Reg8=lm(data=hour8_train, consumption~Lag_48+Lag_168)
 summary(Reg8)
@@ -155,7 +175,9 @@ MAPE8c_reg_values=as.vector(abs(((hour8_test$consumption-predictions8)/hour8_tes
 mape_result_c[9]<-MAPE_8
 MAPE_8
 
-Reg9=lm(data=hour9_train[8:.N], consumption~Lag_48+Lag_168)
+summary(MAPE8c_reg_values)
+
+Reg9=lm(data=hour9_train, consumption~Lag_48+Lag_168)
 summary(Reg9)
 predictions9=predict(Reg9,newdata = hour9_test)
 MAPE_9=MAPE(predictions9,hour9_test$consumption)
@@ -163,6 +185,8 @@ MAPE_9_values=as.vector(abs((hour9_test$consumption-predictions9)/length(test$co
 MAPE9c_reg_values=as.vector(abs(((hour9_test$consumption-predictions9)/hour9_test$consumption)))
 mape_result_c[10]<-MAPE_9
 MAPE_9
+
+summary(MAPE9c_reg_values)
 
 Reg10=lm(data=hour10_train, consumption~Lag_48+Lag_168)
 summary(Reg10)
@@ -173,6 +197,8 @@ MAPE10c_reg_values=as.vector(abs(((hour10_test$consumption-predictions10)/hour10
 mape_result_c[11]<-MAPE_10
 MAPE_10
 
+summary(MAPE10c_reg_values)
+
 Reg11=lm(data=hour11_train, consumption~Lag_48+Lag_168)
 summary(Reg11)
 predictions11=predict(Reg11,newdata = hour11_test)
@@ -181,6 +207,8 @@ MAPE_11_values=as.vector(abs((hour11_test$consumption-predictions11)/length(test
 MAPE11c_reg_values=as.vector(abs(((hour11_test$consumption-predictions11)/hour11_test$consumption)))
 mape_result_c[12]<-MAPE_11
 MAPE_11
+
+summary(MAPE11c_reg_values)
 
 Reg12=lm(data=hour12_train, consumption~Lag_48+Lag_168)
 summary(Reg12)
@@ -191,6 +219,8 @@ MAPE12c_reg_values=as.vector(abs(((hour12_test$consumption-predictions12)/hour12
 mape_result_c[13]<-MAPE_12
 MAPE_12
 
+summary(MAPE12c_reg_values)
+
 Reg13=lm(data=hour13_train, consumption~Lag_48+Lag_168)
 summary(Reg13)
 predictions13=predict(Reg13,newdata = hour13_test)
@@ -199,6 +229,8 @@ MAPE_13_values=as.vector(abs((hour13_test$consumption-predictions13)/length(test
 MAPE13c_reg_values=as.vector(abs(((hour13_test$consumption-predictions13)/hour13_test$consumption)))
 mape_result_c[14]<-MAPE_13
 MAPE_13
+
+summary(MAPE13c_reg_values)
 
 Reg14=lm(data=hour14_train, consumption~Lag_48+Lag_168)
 summary(Reg14)
@@ -209,6 +241,8 @@ MAPE14c_reg_values=as.vector(abs(((hour14_test$consumption-predictions14)/hour14
 mape_result_c[15]<-MAPE_14
 MAPE_14
 
+summary(MAPE14c_reg_values)
+
 Reg15=lm(data=hour15_train, consumption~Lag_48+Lag_168)
 summary(Reg15)
 predictions15=predict(Reg15,newdata = hour15_test)
@@ -217,6 +251,8 @@ MAPE_15_values=as.vector(abs((hour15_test$consumption-predictions15)/length(test
 MAPE15c_reg_values=as.vector(abs(((hour15_test$consumption-predictions15)/hour15_test$consumption)))
 mape_result_c[16]<-MAPE_15
 MAPE_15
+
+summary(MAPE15c_reg_values)
 
 Reg16=lm(data=hour16_train, consumption~Lag_48+Lag_168)
 summary(Reg16)
@@ -227,6 +263,8 @@ MAPE16c_reg_values=as.vector(abs(((hour16_test$consumption-predictions16)/hour16
 mape_result_c[17]<-MAPE_16
 MAPE_16
 
+summary(MAPE16c_reg_values)
+
 Reg17=lm(data=hour17_train, consumption~Lag_48+Lag_168)
 summary(Reg17)
 predictions17=predict(Reg17,newdata = hour17_test)
@@ -235,6 +273,8 @@ MAPE_17_values=as.vector(abs((hour17_test$consumption-predictions17)/length(test
 MAPE17c_reg_values=as.vector(abs(((hour17_test$consumption-predictions17)/hour17_test$consumption)))
 mape_result_c[18]<-MAPE_17
 MAPE_17
+
+summary(MAPE17c_reg_values)
 
 Reg18=lm(data=hour18_train, consumption~Lag_48+Lag_168)
 summary(Reg18)
@@ -245,6 +285,8 @@ MAPE18c_reg_values=as.vector(abs(((hour18_test$consumption-predictions18)/hour18
 mape_result_c[19]<-MAPE_18
 MAPE_18
 
+summary(MAPE18c_reg_values)
+
 Reg19=lm(data=hour19_train, consumption~Lag_48+Lag_168)
 summary(Reg19)
 predictions19=predict(Reg19,newdata = hour19_test)
@@ -253,6 +295,8 @@ MAPE_19_values=as.vector(abs((hour19_test$consumption-predictions19)/length(test
 MAPE19c_reg_values=as.vector(abs(((hour19_test$consumption-predictions19)/hour19_test$consumption)))
 mape_result_c[20]<-MAPE_19
 MAPE_19
+
+summary(MAPE19c_reg_values)
 
 Reg20=lm(data=hour20_train, consumption~Lag_48+Lag_168)
 summary(Reg20)
@@ -263,6 +307,8 @@ MAPE20c_reg_values=as.vector(abs(((hour20_test$consumption-predictions20)/hour20
 mape_result_c[21]<-MAPE_20
 MAPE_20
 
+summary(MAPE20c_reg_values)
+
 Reg21=lm(data=hour21_train, consumption~Lag_48+Lag_168)
 summary(Reg21)
 predictions21=predict(Reg21,newdata = hour21_test)
@@ -271,6 +317,8 @@ MAPE_21_values=as.vector(abs((hour21_test$consumption-predictions21)/length(test
 MAPE21c_reg_values=as.vector(abs(((hour21_test$consumption-predictions21)/hour21_test$consumption)))
 mape_result_c[22]<-MAPE_21
 MAPE_21
+
+summary(MAPE21c_reg_values)
 
 Reg22=lm(data=hour22_train, consumption~Lag_48+Lag_168)
 summary(Reg22)
@@ -281,6 +329,8 @@ MAPE22c_reg_values=as.vector(abs(((hour22_test$consumption-predictions22)/hour22
 mape_result_c[23]<-MAPE_22
 MAPE_22
 
+summary(MAPE22c_reg_values)
+
 Reg23=lm(data=hour23_train, consumption~Lag_48+Lag_168)
 summary(Reg23)
 predictions23=predict(Reg23,newdata = hour23_test)
@@ -289,11 +339,10 @@ MAPE_23_values=as.vector(abs((hour23_test$consumption-predictions23))/length(tes
 MAPE23c_reg_values=as.vector(abs(((hour23_test$consumption-predictions23)/hour23_test$consumption)))
 mape_result_c[24]<-MAPE_23
 MAPE_23
-summary(MAPE_23)
 
-print(mean(mape_result_c))
+summary(MAPE23c_reg_values)
 
-plot(mape_result_c,type="l",ylab="MAPE Values",xlab="Hours",main="MAPE Values for Models of Hours")
+plot(mape_result_c,type="l",ylab="MAPE Values (Quantity)",xlab="Hours",main="MAPE Values for Hourly Regression Model")
 
 C_all_val=c(MAPE0c_reg_values,MAPE1c_reg_values,MAPE2c_reg_values,MAPE3c_reg_values,MAPE4c_reg_values,MAPE5c_reg_values,
            MAPE6c_reg_values,MAPE7c_reg_values,MAPE8c_reg_values,MAPE9c_reg_values,MAPE10c_reg_values,MAPE11c_reg_values,
@@ -341,18 +390,15 @@ col_name<-function(DT, names){
         }  
 }
 
-cont<-cont[-2068]
-#cont[2060:2080]
-
 data_wide <- spread(cont, hour, consumption)
 lag_2=copy(data_wide[,date:=date+2])
 col_name(lag_2,"Lag_day2_hour_")
-lag_2
+#lag_2
 
 data_wide <- spread(cont, hour, consumption)
 lag_7=copy(data_wide[,date:=date+7])
 col_name(lag_7,"Lag_day7_hour_")
-lag_7
+#lag_7
 
 dt_with_lag2=merge(cont,lag_2,by.x="date",by.y="date",all.x=TRUE)
 
@@ -469,6 +515,15 @@ cvfit21=cv.glmnet(train_mat21,result_vec21,family='gaussian',nfolds = 10,type.me
 cvfit22=cv.glmnet(train_mat22,result_vec22,family='gaussian',nfolds = 10,type.measure="mae")
 cvfit23=cv.glmnet(train_mat23,result_vec23,family='gaussian',nfolds = 10,type.measure="mae")
 
+for(i in seq(0,23,by=1)){    
+    plot(get(paste0("cvfit",i)))
+    print(paste("Hour",i))
+    print(paste("Min value for Lambda=",get(paste0("cvfit",i))$lambda.min))
+    print(paste("1se value for Lambda=",get(paste0("cvfit",i))$lambda.1se))    
+    print(coef(get(paste0("cvfit",i)), s = 'lambda.min'))
+    print(paste0("Plot for ",i,"'th hour's Cross Validation"))
+}
+
 test_mat0=as.matrix(test_d0[complete.cases(test_d0),-c('date',"hour","consumption")])
 test_mat1=as.matrix(test_d1[complete.cases(test_d1),-c('date',"hour","consumption")])
 test_mat2=as.matrix(test_d2[complete.cases(test_d2),-c('date',"hour","consumption")])
@@ -568,9 +623,9 @@ mape_result_d[21] <- MAPE(test_d20$consumption, predicts_hour20)
 mape_result_d[22] <- MAPE(test_d21$consumption, predicts_hour21)
 mape_result_d[23] <- MAPE(test_d22$consumption, predicts_hour22)
 mape_result_d[24] <- MAPE(test_d23$consumption, predicts_hour23)
-mape_result_d
+#mape_result_d
 
-plot(mape_result_d,type="l",ylab="MAPE Values",xlab="Hours",main="MAPE Values for Models of Hours with Lasso Penalty")
+plot(mape_result_d,type="l",ylab="MAPE Values (Quantity)",xlab="Hours",main="MAPE Values for Hourly Model with Lasso Penalty")
 
 MAPE0d_reg_values=as.vector(abs(((hour0_test$consumption-predicts_hour0)/predicts_hour0)))
 MAPE1d_reg_values=as.vector(abs(((hour1_test$consumption-predicts_hour1)/predicts_hour1)))
@@ -603,27 +658,28 @@ D_all_val=c(MAPE0d_reg_values,MAPE1d_reg_values,MAPE2d_reg_values,MAPE3d_reg_val
            MAPE12d_reg_values,MAPE13d_reg_values,MAPE14d_reg_values,MAPE15d_reg_values,MAPE16d_reg_values,MAPE17d_reg_values,
            MAPE18d_reg_values,MAPE19d_reg_values,MAPE20d_reg_values,MAPE21d_reg_values,MAPE22d_reg_values,MAPE23d_reg_values)
 
-library(ggthemes)
+summary(D_all_val)
 
 MAPE_hourly=(MAPE_0+MAPE_1+MAPE_2+MAPE_3+MAPE_4+MAPE_5+MAPE_6+MAPE_7+MAPE_8+MAPE_9+
             MAPE_10+MAPE_11+MAPE_12+MAPE_13+MAPE_14+MAPE_15+MAPE_16+MAPE_17+MAPE_18+MAPE_19+
             MAPE_20+MAPE_21+MAPE_22+MAPE_23)/24
 
-print(paste("MAPE values for Lag_168 results(PART A):",MAPE_168))
+
 print(paste("MAPE values for Lag_48 results(PART A):",MAPE_48))
-print(paste("MAPE values for Regression model results(PART B):",MAPE_reg))
+print(paste("MAPE values for Lag_168 results(PART A):",MAPE_168))
+print(paste("MAPE values for Regression Model:",MAPE_reg))
 print(paste("MAPE values(average of all hour) for hourly results(PART C):",MAPE_hourly))
 print(paste("MAPE values for Part D results(PART D):",mean(mape_result_d)))
 
 MAPE_dt=data.table("MAPE of Lag 48"=MAPE_48_values,"MAPE of Lag 168"=MAPE_168_values,"MAPE of Regr."=MAPE_reg_values,"MAPE of Seasonality"=C_all_val ,"MAPE of Lasso"=D_all_val)
 melted_dt=melt(MAPE_dt)
 
-perf_summary=melted_dt[,list("Average Mape"=mean(value),Minimum=min(value),"Lower Quartile"=quantile(value)[2],
-                             "Upper Quartile"=quantile(value)[4],Maximum=max(value))
+feature_summary=melted_dt[,list("Average Mape"=mean(value),Minimum=min(value),"Lower Quartile"=quantile(value)[2],
+                             "Upper Quartile"=quantile(value)[4],Maximum=max(value),"Standard Deviation"=sd(value))
                                ,by=list(variable)]
-perf_summary                     
+feature_summary                     
 
 ggplot(melted_dt,aes(x=variable,y=value*100,fill=variable))+geom_boxplot(position=position_dodge())+
-        theme(legend.position = "none")+ggtitle("Comparison of MAPE Values")+xlab("Models")+ylab("MAPE Values")
+        theme(legend.position = "none")+ggtitle("Comparison of MAPE Values")+xlab("Models")+ylab("MAPE Values (Percentage)")
 
 
