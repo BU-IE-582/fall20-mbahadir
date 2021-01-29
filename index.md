@@ -28,6 +28,23 @@
 
 [here](Homework3\Homework3.r) is the R Script for 3. Homework
 
+## Homework 4
+
+All the Datasets are evaluated in different notebooks because it will be too long read html file. In addition, 
+another report is also added to observe final results of the models. All the conclusion is made in this report and 
+it is includes summarizations and comments related to obtained results.
+
+[here](Homework4\Homework4-Blog_Comment_Dataset.html) is the HTML file for Blog Comment Dataset 
+
+[here](Homework4\Homework4-Spam_Mail_Dataset.html) is the HTML file for Spam Mail Dataset
+
+[here](Homework4\Homework4-Student_Evaluation.html) is the HTML file for Student Evaluation Dataset 
+
+[here](Homework4\Homework4-Pisa_Reading_Score.html) is the HTML file for Pisa Reading Score Dataset 
+
+[here](Homework4\Homework4-General_Report.html) is the HTML file for General Report
+
+[here](Homework4\Homework4.r) is the R Script for 4. Homeworks
 
 ### Class Github Page
 
