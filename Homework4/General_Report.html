@@ -14256,7 +14256,3336 @@ a.anchor-link {
     </script>
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In order to explain what have been obtained, this report will be used. First of all, general information related to dataset can be listed as:</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Pisa-Reading-Score">Pisa Reading Score<a class="anchor-link" href="#Pisa-Reading-Score">&#182;</a></h2><ul>
+<li>Target Variable is Reading Score.</li>
+<li>Both Train and Test dataset have more than 200 input.</li>
+<li>Dataset has more than 20 Features.</li>
+<li>A brief description added to the notebooks at the beggining. </li>
+</ul>
+<h2 id="Blog-Comment">Blog Comment<a class="anchor-link" href="#Blog-Comment">&#182;</a></h2><ul>
+<li>Target Variable is Reading Score.</li>
+<li>Both Train and Test dataset have more than 200 input.</li>
+<li>Dataset has more than 20 Features.</li>
+<li>A brief description added to the notebooks at the beggining. </li>
+</ul>
+<h2 id="Student-Evaluation">Student Evaluation<a class="anchor-link" href="#Student-Evaluation">&#182;</a></h2><ul>
+<li>Target Variable is Reading Score.</li>
+<li>Both Train and Test dataset have more than 200 input.</li>
+<li>Dataset has more than 20 Features.</li>
+<li>A brief description added to the notebooks at the beggining. </li>
+</ul>
+<h2 id="Spam-Mail">Spam Mail<a class="anchor-link" href="#Spam-Mail">&#182;</a></h2><ul>
+<li>Target Variable is Reading Score.</li>
+<li>Both Train and Test dataset have more than 200 input.</li>
+<li>Dataset has more than 20 Features.</li>
+<li>A brief description added to the notebooks at the beggining. </li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Specific-Requirements">Specific Requirements<a class="anchor-link" href="#Specific-Requirements">&#182;</a></h2><p>In addition to this requirements, <strong>specific information</strong> related to dataset can be listed as:</p>
+<ul>
+<li>Pisa Reading Score and Blog Comment Dataset have regression Problem.</li>
+<li>Student Evaluation Test is multi-classification problem.</li>
+<li>Spam Mail has imbalance problem in the classification problem.</li>
+<li>Blog Comment and Spam Mail datasets have more than 50 features.</li>
+<li>Student Evaluation, Reading Score Datasets have categorical independent variables.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Achieved-Performance-Measures-for-Datasets">Achieved Performance Measures for Datasets<a class="anchor-link" href="#Achieved-Performance-Measures-for-Datasets">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First of all, what obtained in the datasets are added to this report. After these performance results, general comments will be made related to models and datasets. Namely, specific information related to models and dataset relationship can be found in the comment in the performance measure parts. At the end, a brief comparision and models' performance in different type of problems will be evaluated.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Pisa-Reading-Score">Pisa Reading Score<a class="anchor-link" href="#Pisa-Reading-Score">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Linear-Regression-with-Penalty">Linear Regression with Penalty<a class="anchor-link" href="#Linear-Regression-with-Penalty">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Different Penalty types are tried in the glmnet package by using mean absolute percentage error and mean square error objective. In these 2 penalty, 3 different lambdas are tried to obtain a model. In addition, all the possible lambda values are checked by plotting the cv.glmnet() results. Predictions are made based on these models. Best model performance are observed in this test dataset. After all, caret() packages are used to make a model can be comparable with other method's models. Namely, caret library is used in all the methods to obtain similar report types. Penalized Regression Approach is made with 3 different lambda values. These are lambda.min, lambda.1se, and random a lambda value achieved in the previous cv.glmnet() process. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">lm_model</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>glmnet 
+
+2414 samples
+  23 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 2172, 2170, 2173, 2173, 2172, 2173, ... 
+Resampling results across tuning parameters:
+
+  lambda      RMSE      Rsquared   MAE     
+   0.2935122  74.18294  0.3113987  59.11383
+   4.7835176  75.29688  0.3020824  60.35636
+  13.3104220  80.12992  0.2660190  64.68339
+
+Tuning parameter &#39;alpha&#39; was held constant at a value of 1
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were alpha = 1 and lambda = 0.2935122.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Penalized-Regression-Approach">Best Model for Penalized Regression Approach<a class="anchor-link" href="#Best-Model-for-Penalized-Regression-Approach">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>lambda 0.2935122(lambda.min) and MAE Penalty type</strong> is the best tuned parameter for this model for Pisa Reading Score Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[100]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Penalized Regression Approach:&quot;</span><span class="p">,</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1] &#34;The Smallest RMSE value in Penalized Regression Approach: 74.1829393463686&#34;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>6 different minbucket</strong> values are tried to get best model for Decision Tree. However, in caret library there is no available packages for rpart for tuning the minimal number of observation per tree leaf. So for loop is tried to get information related to effects in the change of number of variable in the tree leaf. In addition, all models tested with <strong>10 different cp value</strong>. After looking the created model's result, the best model is selected. The best RMSE value is selected with considering the minbucket values and cp values. Selected model evaluated 1 more time and named as tr_last. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[92]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">tr_last</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>CART 
+
+2414 samples
+  29 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 2174, 2171, 2173, 2172, 2172, 2172, ... 
+Resampling results across tuning parameters:
+
+  cp    RMSE      Rsquared   MAE     
+  0.00  80.54359  0.2271929  64.29627
+  0.01  79.54121  0.2094880  63.67533
+  0.02  81.09784  0.1780498  65.22498
+  0.03  81.86471  0.1618356  65.90086
+  0.04  81.86471  0.1618356  65.90086
+  0.05  81.86471  0.1618356  65.90086
+  0.06  83.80165  0.1216110  67.70118
+  0.07  83.82850  0.1210650  67.73239
+  0.08  83.82850  0.1210650  67.73239
+  0.09  83.82850  0.1210650  67.73239
+  0.10  83.82850  0.1210650  67.73239
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was cp = 0.01.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Decision-Tree">Best Model for Decision Tree<a class="anchor-link" href="#Best-Model-for-Decision-Tree">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>cp=0.01 and minbucket = 9</strong> is the best tuned parameter for this model for Pisa Reading Score Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[93]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Decision Tree:&quot;</span><span class="p">,</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+79.5412116765522
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As mentioned in the homework description, only mtry namely number of selected feature for model is modified. 4 different number is determined. Best model is achived the model with the biggest number of feature. Hovewer, Mean Absolute Error is the smallest in the model with the smallest number of feature. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">rf_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Random Forest 
+
+2414 samples
+  23 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 2173, 2172, 2172, 2173, 2173, 2173, ... 
+Resampling results across tuning parameters:
+
+  mtry  RMSE      Rsquared   MAE     
+   4    74.22778  0.3127169  59.68398
+   8    74.86137  0.2988596  60.03758
+  10    75.34474  0.2908063  60.46137
+  15    75.50474  0.2895483  60.54514
+
+Tuning parameter &#39;splitrule&#39; was held constant at a value of variance
+
+Tuning parameter &#39;min.node.size&#39; was held constant at a value of 5
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were mtry = 4, splitrule = variance
+ and min.node.size = 5.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Random-Forest">Best Model for Random Forest<a class="anchor-link" href="#Best-Model-for-Random-Forest">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>mtry=4</strong> is the best tuned parameter for this model for Pisa Reading Score Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[99]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Random Forest:&quot;</span><span class="p">,</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1] &#34;The Smallest RMSE value in Random Forest: 74.2277812566288&#34;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Stochastic-Gradient-Boosting">Stochastic Gradient Boosting<a class="anchor-link" href="#Stochastic-Gradient-Boosting">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Different 5 shrinkage value, 3 interaction.depth, 5 n.trees values</strong> are tried to obtain the best model. This model is the one which takes the most time to create the models. The reason behind this fact caused from number of tuned parameter in the approach. However, it has the best RMSE value among the models. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">gbm_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Stochastic Gradient Boosting 
+
+2414 samples
+  23 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 2173, 2172, 2172, 2171, 2173, 2174, ... 
+Resampling results across tuning parameters:
+
+  shrinkage  interaction.depth  n.trees  RMSE      Rsquared   MAE     
+  0.1        1                   50      75.47460  0.3126352  60.62038
+  0.1        1                  100      73.47254  0.3300000  58.69375
+  0.1        1                  150      72.95822  0.3358354  58.19940
+  0.1        1                  200      72.80733  0.3378907  58.00691
+  0.1        1                  250      72.63771  0.3407722  57.90860
+  0.1        3                   50      73.16656  0.3337547  58.63596
+  0.1        3                  100      72.34571  0.3459466  57.79544
+  0.1        3                  150      72.28070  0.3472914  57.76970
+  0.1        3                  200      72.12923  0.3504537  57.65767
+  0.1        3                  250      72.17670  0.3501236  57.65177
+  0.1        5                   50      72.62962  0.3418939  58.13086
+  0.1        5                  100      72.12213  0.3501401  57.66027
+  0.1        5                  150      72.23960  0.3489102  57.67923
+  0.1        5                  200      72.40157  0.3467039  57.85780
+  0.1        5                  250      72.57940  0.3439994  58.02686
+  0.3        1                   50      73.10363  0.3342225  58.22410
+  0.3        1                  100      72.80414  0.3384781  57.98277
+  0.3        1                  150      72.95011  0.3357024  58.15391
+  0.3        1                  200      72.53172  0.3435654  57.77987
+  0.3        1                  250      72.31134  0.3471333  57.71882
+  0.3        3                   50      72.69742  0.3405160  57.79556
+  0.3        3                  100      72.96487  0.3376297  58.10455
+  0.3        3                  150      73.54539  0.3307890  58.65520
+  0.3        3                  200      74.04792  0.3245085  59.03830
+  0.3        3                  250      74.44774  0.3203904  59.34712
+  0.3        5                   50      73.14272  0.3348002  58.48057
+  0.3        5                  100      73.64867  0.3315839  59.09907
+  0.3        5                  150      74.25703  0.3243931  59.55848
+  0.3        5                  200      75.26677  0.3127645  60.12264
+  0.3        5                  250      76.56458  0.2973616  61.06134
+  0.5        1                   50      73.12045  0.3333609  58.19274
+  0.5        1                  100      72.45678  0.3450455  57.75706
+  0.5        1                  150      72.52661  0.3440706  57.91504
+  0.5        1                  200      72.60811  0.3434056  57.72905
+  0.5        1                  250      72.21692  0.3493538  57.52855
+  0.5        3                   50      73.29377  0.3332815  58.68340
+  0.5        3                  100      74.11072  0.3253293  59.37377
+  0.5        3                  150      74.86961  0.3175046  59.98942
+  0.5        3                  200      75.35855  0.3130353  60.47737
+  0.5        3                  250      76.00930  0.3062170  60.90497
+  0.5        5                   50      75.05514  0.3136308  60.25197
+  0.5        5                  100      77.85234  0.2830813  62.12729
+  0.5        5                  150      79.66701  0.2644785  63.74646
+  0.5        5                  200      81.89056  0.2397880  65.42251
+  0.5        5                  250      83.40476  0.2288027  67.05508
+
+Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 20
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were n.trees = 100, interaction.depth =
+ 5, shrinkage = 0.1 and n.minobsinnode = 20.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Stochastic-Gradient-Boosting">Best Model for Stochastic Gradient Boosting<a class="anchor-link" href="#Best-Model-for-Stochastic-Gradient-Boosting">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>n.trees = 100 interaction.depth =
+ 5, shrinkage = 0.1 and n.minobsinnode = 20</strong> is the best tuned parameter for this model for Pisa Reading Score Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[97]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Stochastic Gradient Boosting:&quot;</span><span class="p">,</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1] &#34;The Smallest RMSE value in Stochastic Gradient Boosting: 72.1221273300718&#34;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Comparision-of-Results-in-Training-and-Test-Dataset">Comparision of Results in Training and Test Dataset<a class="anchor-link" href="#Comparision-of-Results-in-Training-and-Test-Dataset">&#182;</a></h1>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[126]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">train</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Linear Regression with Lasso Results&quot;</span><span class="o">=</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)],</span>
+            <span class="s">&quot;Decision Tree Results&quot;</span><span class="o">=</span>    <span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)],</span>
+            <span class="s">&quot;Random Forest Results&quot;</span><span class="o">=</span>    <span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)],</span>
+            <span class="s">&quot;Result Stochastic Gradient Boosting Results&quot;</span><span class="o">=</span>    <span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="RMSE-in-The-Train-Dataset">RMSE in The Train Dataset<a class="anchor-link" href="#RMSE-in-The-Train-Dataset">&#182;</a></h2>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[129]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>Linear Regression with Lasso Results</th><th scope=col>Decision Tree Results</th><th scope=col>Random Forest Results</th><th scope=col>Result Stochastic Gradient Boosting Results</th></tr></thead>
+<tbody>
+	<tr><td>74.18294</td><td>79.54121</td><td>74.22778</td><td>72.12213</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[115]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;Pisa Data Set for Lasso Function with min lambda and mse objective&quot;</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">pisa_test</span><span class="o">$</span><span class="n">readingScore</span><span class="p">),</span> <span class="n">prediction_pra_mse_pisa_min</span><span class="p">)</span>
+<span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;Decision Tree with CV for Pisa Dataset&quot;</span><span class="p">,</span><span class="n">pisa_test_dt</span><span class="o">$</span><span class="n">readingScore</span><span class="p">,</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">predicted_pisa_dt</span><span class="p">))</span>
+<span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;First Data Set for Random Forest&quot;</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">RandomForest_pisa</span><span class="p">),</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">pisa_test</span><span class="o">$</span><span class="n">readingScore</span><span class="p">))</span>
+<span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;First Data Set for Stochastic Gradient Boosting&quot;</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">predicted_pisa_sgb</span><span class="p">),</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">pisa_test</span><span class="o">$</span><span class="n">readingScore</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>Pisa Data Set for Lasso Function with min lambda and mse objective</td><td>990                                                               </td><td>519.8643                                                          </td><td>88.80043                                                          </td><td>0.007031004                                                       </td><td>0.1220864                                                         </td><td>2.435895                                                          </td><td>60.65549                                                          </td><td>0.1166756                                                         </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>Decision Tree with CV for Pisa Dataset</td><td>990                                   </td><td>519.8643                              </td><td>88.80043                              </td><td>0.007325851                           </td><td>0.1262667                             </td><td>2.506513                              </td><td>62.69629                              </td><td>0.1206013                             </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>First Data Set for Random Forest</td><td>990                             </td><td>517.8192                        </td><td>45.48294                        </td><td>-0.003949342                    </td><td>0.1157326                       </td><td>2.383545                        </td><td>59.41911                        </td><td>0.1147487                       </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>First Data Set for Stochastic Gradient Boosting</td><td>990                                            </td><td>516.5296                                       </td><td>52.44005                                       </td><td>-0.00645595                                    </td><td>0.1154572                                      </td><td>2.364434                                       </td><td>58.9861                                        </td><td>0.1141969                                      </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Models got similar performance as achieved in the training dataset. Namely, it is hard to say that there is an over-fitting or under-fitting. Reading Score Estimation can be described as regression problem, so having the worst performance measure both training and test data sets aren't a suprise for decision tree model. In addition to under/over-fitting, it can be said that error rates are consistent for both datasets, which can be observed looking the correlation between the results pf performance of the models in both dataset.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Blog-Comment">Blog Comment<a class="anchor-link" href="#Blog-Comment">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Linear-Regression-with-Penalty">Linear Regression with Penalty<a class="anchor-link" href="#Linear-Regression-with-Penalty">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Different Penalty types are tried in the glmnet package by using mean absolute percentage error and mean square error objective. In these 2 penalty, 3 different lambdas are tried to obtain a model. In addition, all the possible lambda values are checked by plotting the cv.glmnet() results. Predictions are made based on these models. Best model performance are observed in this test dataset. After all, caret() packages are used to make a model can be comparable with other method's models. Namely, caret library is used in all the methods to obtain similar report types. Penalized Regression Approach is made with 3 different lambda values. These are lambda.min, lambda.1se, and random a lambda value achieved in the previous cv.glmnet() process. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">lm_model</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>glmnet 
+
+8023 samples
+ 280 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 7221, 7220, 7220, 7220, 7222, 7220, ... 
+Resampling results across tuning parameters:
+
+  lambda    RMSE      Rsquared   MAE      
+  2.441102  24.42847  0.2050926   9.869664
+  3.226993  24.61889  0.2009448  10.022668
+  4.681814  25.07599  0.1863053  10.510031
+
+Tuning parameter &#39;alpha&#39; was held constant at a value of 1
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were alpha = 1 and lambda = 2.441102.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Penalized-Regression-Approach">Best Model for Penalized Regression Approach<a class="anchor-link" href="#Best-Model-for-Penalized-Regression-Approach">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>lambda 2.441102(lambda.min) and MAE Penalty type</strong> is the best tuned parameter for this model for Blog Comment Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Penalized Regression Approach:&quot;</span><span class="p">,</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1] &#34;The Smallest RMSE value in Penalized Regression Approach: 24.4284740530075&#34;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>6 different minbucket</strong> values are tried to get best model for Decision Tree. However, in caret library there is no available packages for rpart for tuning the minimal number of observation per tree leaf. So for loop is tried to get information related to effects in the change of number of variable in the tree leaf. In addition, all models tested with <strong>10 different cp value</strong>. After looking the created model's result, the best model is selected. The best RMSE value is selected with considering the minbucket values and cp values. Selected model evaluated 1 more time and named as tr_last. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">tr_last</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>CART 
+
+8023 samples
+ 280 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 7220, 7220, 7221, 7222, 7221, 7220, ... 
+Resampling results across tuning parameters:
+
+  cp    RMSE      Rsquared   MAE      
+  0.00  22.57559  0.3897072   7.384471
+  0.01  23.31100  0.2881720   8.693458
+  0.02  23.59941  0.2619470   9.289978
+  0.03  23.57051  0.2572654   9.434858
+  0.04  24.22841  0.2119279   9.718694
+  0.05  24.51101  0.1872444   9.984797
+  0.06  24.51033  0.1872444   9.990837
+  0.07  25.27038  0.1352021  10.349000
+  0.08  25.27885  0.1329492  10.415419
+  0.09  25.27885  0.1329492  10.415419
+  0.10  25.27885  0.1329492  10.415419
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was cp = 0.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Decision-Tree">Best Model for Decision Tree<a class="anchor-link" href="#Best-Model-for-Decision-Tree">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>cp=0 and minbucket = 9</strong> is the best tuned parameter for this model for Blog Comment Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Decision Tree:&quot;</span><span class="p">,</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1] &#34;The Smallest RMSE value in Decision Tree: 22.5755890810299&#34;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As mentioned in the homework description, only mtry namely number of selected feature for model is modified. 4 different number is determined. Best model is achived the model with the biggest number of feature. Hovewer, Mean Absolute Error is the smallest in the model with the smallest number of feature. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">rf_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Random Forest 
+
+8023 samples
+ 280 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 7220, 7221, 7220, 7221, 7221, 7221, ... 
+Resampling results across tuning parameters:
+
+  mtry  RMSE      Rsquared   MAE     
+   4    23.12233  0.3410507  9.550554
+   8    20.40609  0.4818724  7.921203
+  10    19.78936  0.5023333  7.523441
+  15    19.20015  0.5178478  6.988483
+
+Tuning parameter &#39;splitrule&#39; was held constant at a value of variance
+
+Tuning parameter &#39;min.node.size&#39; was held constant at a value of 5
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were mtry = 15, splitrule = variance
+ and min.node.size = 5.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Random-Forest">Best Model for Random Forest<a class="anchor-link" href="#Best-Model-for-Random-Forest">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>mtry=15</strong> is the best tuned parameter for this model for Blog Comment Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Random Forest:&quot;</span><span class="p">,</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1] &#34;The Smallest RMSE value in Random Forest: 19.2001454757668&#34;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Stochastic-Gradient-Boosting">Stochastic Gradient Boosting<a class="anchor-link" href="#Stochastic-Gradient-Boosting">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Different 5 shrinkage value, 3 interaction.depth, 5 n.trees values</strong> are tried to obtain the best model. This model is the one which takes the most time to create the models. The reason behind this fact caused from number of tuned parameter in the approach. However, it has the best RMSE value among the models. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">gbm_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Stochastic Gradient Boosting 
+
+8023 samples
+ 270 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 7222, 7220, 7221, 7220, 7220, 7221, ... 
+Resampling results across tuning parameters:
+
+  shrinkage  interaction.depth  n.trees  RMSE      Rsquared   MAE     
+  0.1        1                   25      23.51668  0.2849392  9.506556
+  0.1        1                   50      22.80351  0.3032841  8.832547
+  0.1        1                   75      22.65047  0.3098092  8.775545
+  0.1        1                  100      22.63235  0.3104455  8.889400
+  0.1        1                  125      22.61024  0.3117079  8.963804
+  0.1        3                   25      21.73289  0.3743305  8.388996
+  0.1        3                   50      21.29655  0.3899361  8.003750
+  0.1        3                   75      21.22808  0.3937943  7.952887
+  0.1        3                  100      21.24836  0.3933181  7.957694
+  0.1        3                  125      21.13266  0.3985761  7.919171
+  0.1        5                   25      21.26734  0.3942678  8.123113
+  0.1        5                   50      20.84592  0.4144188  7.840904
+  0.1        5                   75      20.78450  0.4185088  7.786754
+  0.1        5                  100      20.73843  0.4216444  7.728035
+  0.1        5                  125      20.73801  0.4216841  7.708666
+  0.3        1                   25      22.75991  0.3033429  8.904484
+  0.3        1                   50      22.65425  0.3091259  9.147864
+  0.3        1                   75      22.68049  0.3069109  9.257940
+  0.3        1                  100      22.77801  0.3042892  9.366215
+  0.3        1                  125      22.77007  0.3031796  9.357287
+  0.3        3                   25      21.28949  0.3898692  8.032260
+  0.3        3                   50      21.25482  0.3920144  7.976828
+  0.3        3                   75      21.22668  0.3973066  8.035365
+  0.3        3                  100      21.21552  0.3991163  8.059988
+  0.3        3                  125      21.10101  0.4055901  8.013156
+  0.3        5                   25      21.10461  0.4021767  7.928543
+  0.3        5                   50      21.16008  0.4007089  8.003955
+  0.3        5                   75      21.25418  0.3979742  8.047919
+  0.3        5                  100      21.19502  0.4028374  8.094952
+  0.3        5                  125      21.09334  0.4105282  8.136736
+  0.5        1                   25      22.76220  0.3027179  9.365923
+  0.5        1                   50      22.73948  0.3035954  9.498467
+  0.5        1                   75      22.74929  0.3061885  9.567049
+  0.5        1                  100      22.91499  0.2977383  9.577378
+  0.5        1                  125      22.78342  0.3039703  9.621800
+  0.5        3                   25      21.71309  0.3709643  8.255165
+  0.5        3                   50      21.79729  0.3697018  8.442765
+  0.5        3                   75      21.73295  0.3773797  8.484411
+  0.5        3                  100      21.77754  0.3752535  8.594138
+  0.5        3                  125      21.88520  0.3726704  8.727003
+  0.5        5                   25      21.70753  0.3759009  8.311945
+  0.5        5                   50      21.75311  0.3799195  8.508803
+  0.5        5                   75      21.67053  0.3851793  8.716010
+  0.5        5                  100      21.83928  0.3843722  8.839735
+  0.5        5                  125      21.88843  0.3866019  8.871959
+
+Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 20
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were n.trees = 125, interaction.depth =
+ 5, shrinkage = 0.1 and n.minobsinnode = 20.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Stochastic-Gradient-Boosting">Best Model for Stochastic Gradient Boosting<a class="anchor-link" href="#Best-Model-for-Stochastic-Gradient-Boosting">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>n.trees = 125 interaction.depth =
+ 5, shrinkage = 0.1 and n.minobsinnode = 20</strong> is the best tuned parameter for this model for Number of Blog Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The Smallest RMSE value in Stochastic Gradient Boosting:&quot;</span><span class="p">,</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)]))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1] &#34;The Smallest RMSE value in Stochastic Gradient Boosting: 20.7380054790217&#34;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Comparision-of-Results-in-Training-and-Test-Dataset">Comparision of Results in Training and Test Dataset<a class="anchor-link" href="#Comparision-of-Results-in-Training-and-Test-Dataset">&#182;</a></h1>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">train</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Linear Regression with Lasso Results&quot;</span><span class="o">=</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)],</span>
+            <span class="s">&quot;Decision Tree Results&quot;</span><span class="o">=</span>    <span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)],</span>
+            <span class="s">&quot;Random Forest Results&quot;</span><span class="o">=</span>    <span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)],</span>
+            <span class="s">&quot;Result Stochastic Gradient Boosting Results&quot;</span><span class="o">=</span>    <span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">RMSE</span><span class="p">)])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="RMSE-in-The-Train-Dataset">RMSE in The Train Dataset<a class="anchor-link" href="#RMSE-in-The-Train-Dataset">&#182;</a></h2>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>Linear Regression with Lasso Results</th><th scope=col>Decision Tree Results</th><th scope=col>Random Forest Results</th><th scope=col>Result Stochastic Gradient Boosting Results</th></tr></thead>
+<tbody>
+	<tr><td>24.42847</td><td>22.57559</td><td>19.20015</td><td>20.73801</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;Blog Comment Data Set for Lasso Function with min lambda and mse objective&quot;</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">blog_test</span><span class="o">$</span><span class="n">target</span><span class="p">),</span> <span class="n">prediction_pra_mse_blog_1se</span><span class="p">)</span>
+<span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;Decision Tree with CV for Blog Comment Dataset&quot;</span><span class="p">,</span><span class="n">blog_test</span><span class="o">$</span><span class="n">target</span><span class="p">,</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">predicted_blog_dt</span><span class="p">))</span>
+<span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;First Data Set for Random Forest&quot;</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">blog_test</span><span class="o">$</span><span class="n">target</span><span class="p">),</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">RandomForest_blog</span><span class="p">))</span>
+<span class="nf">perf_dt</span><span class="p">(</span><span class="s">&quot;First Data Set for Stochastic Gradient Boosting&quot;</span><span class="p">,</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">blog_test</span><span class="o">$</span><span class="n">target</span><span class="p">),</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">predicted_blog_sgb</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>Blog Comment Data Set for Lasso Function with min lambda and mse objective</td><td>1977                                                                      </td><td>7.152757                                                                  </td><td>16.66787                                                                  </td><td>-0.2301968                                                                </td><td>Inf                                                                       </td><td>0.3298626                                                                 </td><td>8.726155                                                                  </td><td>1.219971                                                                  </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>Decision Tree with CV for Blog Comment Dataset</td><td>1977                                          </td><td>7.152757                                      </td><td>16.66787                                      </td><td>-0.211185                                     </td><td>NaN                                           </td><td>0.3807407                                     </td><td>6.082319                                      </td><td>0.8503462                                     </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>First Data Set for Random Forest</td><td>1977                            </td><td>7.152757                        </td><td>16.66787                        </td><td>-0.2323384                      </td><td>Inf                             </td><td>0.2484009                       </td><td>5.514749                        </td><td>0.7709963                       </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>n</th><th scope=col>mean</th><th scope=col>sd</th><th scope=col>FBias</th><th scope=col>MAPE</th><th scope=col>RMSE</th><th scope=col>MAD</th><th scope=col>WMAPE</th></tr></thead>
+<tbody>
+	<tr><td>First Data Set for Stochastic Gradient Boosting</td><td>1977                                           </td><td>7.152757                                       </td><td>16.66787                                       </td><td>-0.1954518                                     </td><td>Inf                                            </td><td>0.3035566                                      </td><td>6.246727                                       </td><td>0.8733313                                      </td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Models got similar performance as achieved in the training dataset. Namely, it is hard to say that there is an over-fitting or under-fitting. Estimation of number of blog comment  can be described as regression problem, so having the worst performance measure both training and test data sets aren't a suprise for decision tree model. In addition to under/over-fitting, it can be said that error rates are consistent for both datasets, which can be observed looking the correlation between the results pf performance of the models in both dataset.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Student-Evaluation">Student Evaluation<a class="anchor-link" href="#Student-Evaluation">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Linear-Regression-with-Penalty">Linear Regression with Penalty<a class="anchor-link" href="#Linear-Regression-with-Penalty">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[54]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">lrp</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">prediction_pra_mae_min</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test</span><span class="o">$</span><span class="n">y</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">lrp</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 249  28  61  49  37
+         2   0   1   0   1   0
+         3  57  70 255 155  60
+         4   9   8  23  29  14
+         5   9   3  16  11  19
+
+Overall Statistics
+                                          
+               Accuracy : 0.4751          
+                 95% CI : (0.4461, 0.5042)
+    No Information Rate : 0.305           
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.2724          
+                                          
+ Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1  Class: 2 Class: 3 Class: 4 Class: 5
+Precision              0.5873 0.5000000   0.4271  0.34940  0.32759
+Recall                 0.7685 0.0090909   0.7183  0.11837  0.14615
+F1                     0.6658 0.0178571   0.5357  0.17683  0.20213
+Prevalence             0.2784 0.0945017   0.3050  0.21048  0.11168
+Detection Rate         0.2139 0.0008591   0.2191  0.02491  0.01632
+Detection Prevalence   0.3643 0.0017182   0.5129  0.07131  0.04983
+Balanced Accuracy      0.7801 0.5040711   0.6478  0.52980  0.55422</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">dtr</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">predicted_std</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test</span><span class="o">$</span><span class="n">y</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">dtr</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 257  14  40  24  32
+         2   0   0   0   0   0
+         3  67  96 315 221  98
+         4   0   0   0   0   0
+         5   0   0   0   0   0
+
+Overall Statistics
+                                          
+               Accuracy : 0.4914          
+                 95% CI : (0.4623, 0.5205)
+    No Information Rate : 0.305           
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.277           
+                                          
+ Mcnemar&#39;s Test P-Value : NA              
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Precision              0.7003       NA   0.3952       NA       NA
+Recall                 0.7932   0.0000   0.8873   0.0000   0.0000
+F1                     0.7438       NA   0.5469       NA       NA
+Prevalence             0.2784   0.0945   0.3050   0.2105   0.1117
+Detection Rate         0.2208   0.0000   0.2706   0.0000   0.0000
+Detection Prevalence   0.3153   0.0000   0.6847   0.0000   0.0000
+Balanced Accuracy      0.8311   0.5000   0.6458   0.5000   0.5000</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">rfr</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">RandomForest_std</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test</span><span class="o">$</span><span class="n">y</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">rfr</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 242  11  37  20  23
+         2   0  14   7   6   3
+         3  58  70 246 137  56
+         4  15  13  47  65  24
+         5   9   2  18  17  24
+
+Overall Statistics
+                                          
+               Accuracy : 0.5077          
+                 95% CI : (0.4786, 0.5368)
+    No Information Rate : 0.305           
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.3284          
+                                          
+ Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Precision              0.7267  0.46667   0.4339  0.39634  0.34286
+Recall                 0.7469  0.12727   0.6930  0.26531  0.18462
+F1                     0.7367  0.20000   0.5336  0.31785  0.24000
+Prevalence             0.2784  0.09450   0.3050  0.21048  0.11168
+Detection Rate         0.2079  0.01203   0.2113  0.05584  0.02062
+Detection Prevalence   0.2861  0.02577   0.4871  0.14089  0.06014
+Balanced Accuracy      0.8193  0.55605   0.6481  0.57879  0.57006</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Stochastic-Gradient-Boosting">Stochastic Gradient Boosting<a class="anchor-link" href="#Stochastic-Gradient-Boosting">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">sgbr</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">predicted_sgb</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test</span><span class="o">$</span><span class="n">y</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">sgbr</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 254  11  33  21  30
+         2   1  13  12   4   2
+         3  47  70 243 141  48
+         4  15  12  45  65  26
+         5   7   4  22  14  24
+
+Overall Statistics
+                                          
+               Accuracy : 0.5146          
+                 95% CI : (0.4855, 0.5437)
+    No Information Rate : 0.305           
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.3385          
+                                          
+ Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Precision              0.7278  0.40625   0.4426  0.39877  0.33803
+Recall                 0.7840  0.11818   0.6845  0.26531  0.18462
+F1                     0.7548  0.18310   0.5376  0.31863  0.23881
+Prevalence             0.2784  0.09450   0.3050  0.21048  0.11168
+Detection Rate         0.2182  0.01117   0.2088  0.05584  0.02062
+Detection Prevalence   0.2998  0.02749   0.4716  0.14003  0.06100
+Balanced Accuracy      0.8354  0.55008   0.6531  0.57933  0.56958</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>By looking the Accuracy, it can be said that best performance are optained in the Random Forest and Stochastic Gradient Boosting. Indeed, these 2 model's performance is too similar, which can be understood by looking the Precision, Recall, and F1 score of the models. The biggest difference occurs in the precision and recall values of the model. So, main objective can determine which model must be used. Moreover, performance of the other two model is also similar. Indeed decision tree's approach is more proper for classification problems. The reason behind the similarity can be explained by complexity of the models. Namely, Decision Tree's complexity is less than constructed Linear Regression with lasso, but it still has similar performance compared to the other.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Conclusion-of-Models">Conclusion of Models<a class="anchor-link" href="#Conclusion-of-Models">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Linear-Regression-with-Penalty">Linear Regression with Penalty<a class="anchor-link" href="#Linear-Regression-with-Penalty">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Different Penalty types are tried in the glmnet package by using mean absolute percentage error and mean square error objective. In these 2 penalty, 3 different lambdas are tried to obtain a model. In addition, all the possible lambda values are checked by plotting the cv.glmnet() results. Predictions are made based on these models. Best model performance are observed in this test dataset. After all, caret() packages are used to make a model can be comparable with other method's models. Namely, caret library is used in all the methods to obtain similar report types. Penalized Regression Approach is made with 3 different lambda values. These are lambda.min, lambda.1se, and random a lambda value achieved in the previous cv.glmnet() process. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">lm_model</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>glmnet 
+
+4656 samples
+  32 predictor
+   5 classes: &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 4190, 4190, 4190, 4191, 4190, 4192, ... 
+Resampling results across tuning parameters:
+
+  lambda       Accuracy   Kappa    
+  0.002179314  0.5199788  0.3445326
+  0.007304193  0.5158988  0.3296490
+  0.098829223  0.3047682  0.0000000
+
+Tuning parameter &#39;alpha&#39; was held constant at a value of 1
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were alpha = 1 and lambda = 0.002179314.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Penalized-Regression-Approach">Best Model for Penalized Regression Approach<a class="anchor-link" href="#Best-Model-for-Penalized-Regression-Approach">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>alpha = 1, lambda = 0.002179314 and MAE Penalty type</strong> is the best tuned parameter for this model for Student Evaluation Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">lrp</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre> Accuracy 
+0.4750859 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>6 different minbucket</strong> values are tried to get best model for Decision Tree. However, in caret library there is no available packages for rpart for tuning the minimal number of observation per tree leaf. So for loop is tried to get information related to effects in the change of number of variable in the tree leaf. In addition, all models tested with <strong>10 different cp value</strong>. After looking the created model's result, the best model is selected. The best Accuracy value is selected with considering the minbucket values and cp values. Selected model evaluated 1 more time and named as tr_last. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[75]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">tr_last</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>CART 
+
+4656 samples
+ 164 predictor
+   5 classes: &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 4190, 4192, 4190, 4190, 4191, 4191, ... 
+Resampling results across tuning parameters:
+
+  cp    Accuracy   Kappa    
+  0.00  0.4641210  0.2867510
+  0.01  0.4935627  0.2805461
+  0.02  0.4935627  0.2805461
+  0.03  0.4935627  0.2805461
+  0.04  0.4935627  0.2805461
+  0.05  0.4935627  0.2805461
+  0.06  0.4935627  0.2805461
+  0.07  0.4935627  0.2805461
+  0.08  0.4935627  0.2805461
+  0.09  0.4935627  0.2805461
+  0.10  0.4935627  0.2805461
+
+Accuracy was used to select the optimal model using the largest value.
+The final value used for the model was cp = 0.1.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Decision-Tree">Best Model for Decision Tree<a class="anchor-link" href="#Best-Model-for-Decision-Tree">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>cp=0.1 and minbucket = 8</strong> is the best tuned parameter for this model for Student Evaluation Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">dtr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre> Accuracy 
+0.4914089 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As mentioned in the homework description, only mtry namely number of selected feature for model is modified. 4 different number is determined. Best model is achived the model with the 10 number of feature. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">rf_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Random Forest 
+
+4656 samples
+  32 predictor
+   5 classes: &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 4190, 4191, 4190, 4190, 4190, 4192, ... 
+Resampling results across tuning parameters:
+
+  mtry  Accuracy   Kappa    
+   4    0.4374783  0.2109921
+   8    0.4819396  0.2853275
+  10    0.4886044  0.2969695
+  15    0.4920430  0.3057549
+
+Tuning parameter &#39;splitrule&#39; was held constant at a value of extratrees
+
+Tuning parameter &#39;min.node.size&#39; was held constant at a value of 5
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were mtry = 15, splitrule = extratrees
+ and min.node.size = 5.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Random-Forest">Best Model for Random Forest<a class="anchor-link" href="#Best-Model-for-Random-Forest">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>mtry=15</strong> is the best tuned parameter for this model for Student Evaluation Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">rfr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Accuracy 
+0.507732 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Stochastic-Gradient-Boosting">Stochastic Gradient Boosting<a class="anchor-link" href="#Stochastic-Gradient-Boosting">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Different 5 shrinkage value, 3 interaction.depth, 5 n.trees values</strong> are tried to obtain the best model. This model is the one which takes the most time to create the models. The reason behind this fact caused from number of tuned parameter in the approach. However, it has the best Accuracy value with Random Forest. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">gbm_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Stochastic Gradient Boosting 
+
+4656 samples
+  32 predictor
+   5 classes: &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 4191, 4191, 4191, 4190, 4190, 4189, ... 
+Resampling results across tuning parameters:
+
+  shrinkage  interaction.depth  n.trees  Accuracy   Kappa    
+  0.1        1                   50      0.5045147  0.3078019
+  0.1        1                  100      0.5116004  0.3253585
+  0.1        1                  150      0.5128862  0.3312142
+  0.1        1                  200      0.5189012  0.3425569
+  0.1        1                  250      0.5199714  0.3450251
+  0.1        3                   50      0.5116027  0.3307548
+  0.1        3                  100      0.5150413  0.3412033
+  0.1        3                  150      0.5173949  0.3463261
+  0.1        3                  200      0.5131017  0.3420885
+  0.1        3                  250      0.5154663  0.3455269
+  0.1        5                   50      0.5221169  0.3483885
+  0.1        5                  100      0.5186834  0.3484588
+  0.1        5                  150      0.5088006  0.3374475
+  0.1        5                  200      0.5036458  0.3321000
+  0.1        5                  250      0.5060132  0.3359096
+  0.3        1                   50      0.5060192  0.3232565
+  0.3        1                  100      0.5176113  0.3432444
+  0.3        1                  150      0.5139702  0.3397873
+  0.3        1                  200      0.5126789  0.3391042
+  0.3        1                  250      0.5126766  0.3395951
+  0.3        3                   50      0.5060077  0.3321892
+  0.3        3                  100      0.4991361  0.3268248
+  0.3        3                  150      0.4957054  0.3237940
+  0.3        3                  200      0.4946324  0.3238476
+  0.3        3                  250      0.4853925  0.3122594
+  0.3        5                   50      0.4963469  0.3233189
+  0.3        5                  100      0.4942009  0.3236316
+  0.3        5                  150      0.4860349  0.3132129
+  0.3        5                  200      0.4804522  0.3073159
+  0.3        5                  250      0.4768019  0.3029899
+  0.5        1                   50      0.5103133  0.3317787
+  0.5        1                  100      0.5096709  0.3342149
+  0.5        1                  150      0.5092362  0.3356185
+  0.5        1                  200      0.5038696  0.3274632
+  0.5        1                  250      0.5103120  0.3385400
+  0.5        3                   50      0.5010790  0.3317603
+  0.5        3                  100      0.4821731  0.3081454
+  0.5        3                  150      0.4768032  0.3023704
+  0.5        3                  200      0.4692708  0.2936197
+  0.5        3                  250      0.4666976  0.2907881
+  0.5        5                   50      0.4821699  0.3085435
+  0.5        5                  100      0.4750957  0.3022930
+  0.5        5                  150      0.4637080  0.2876027
+  0.5        5                  200      0.4557584  0.2760911
+  0.5        5                  250      0.4525368  0.2733735
+
+Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 20
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were n.trees = 50, interaction.depth =
+ 5, shrinkage = 0.1 and n.minobsinnode = 20.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Stochastic-Gradient-Boosting">Best Model for Stochastic Gradient Boosting<a class="anchor-link" href="#Best-Model-for-Stochastic-Gradient-Boosting">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>n.trees = 50 interaction.depth =
+ 5, shrinkage = 0.1 and n.minobsinnode = 20</strong> is the best tuned parameter for this model for Student Evaluation Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">sgbr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre> Accuracy 
+0.5146048 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Comparision-of-Results-in-Training-and-Test-Dataset">Comparision of Results in Training and Test Dataset<a class="anchor-link" href="#Comparision-of-Results-in-Training-and-Test-Dataset">&#182;</a></h1>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[71]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">train</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Linear Regression with Lasso Results&quot;</span><span class="o">=</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)],</span>
+            <span class="s">&quot;Decision Tree Results&quot;</span><span class="o">=</span>    <span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)],</span>
+            <span class="s">&quot;Random Forest Results&quot;</span><span class="o">=</span>    <span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)],</span>
+            <span class="s">&quot;Result Stochastic Gradient Boosting Results&quot;</span><span class="o">=</span>    <span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Accuracy-in-The-Train-Dataset&#182;">Accuracy in The Train Dataset&#182;<a class="anchor-link" href="#Accuracy-in-The-Train-Dataset&#182;">&#182;</a></h2>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[72]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>Linear Regression with Lasso Results</th><th scope=col>Decision Tree Results</th><th scope=col>Random Forest Results</th><th scope=col>Result Stochastic Gradient Boosting Results</th></tr></thead>
+<tbody>
+	<tr><td>0.3047682</td><td>0.4652249</td><td>0.4374783</td><td>0.4525368</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[68]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">test</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Linear Regression with Lasso Results&quot;</span><span class="o">=</span><span class="n">lrp</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">],</span>
+            <span class="s">&quot;Decision Tree Results&quot;</span><span class="o">=</span>    <span class="n">dtr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">],</span>
+            <span class="s">&quot;Random Forest Results&quot;</span><span class="o">=</span>    <span class="n">rfr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">],</span>
+            <span class="s">&quot;Result Stochastic Gradient Boosting Results&quot;</span><span class="o">=</span>    <span class="n">sgbr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Accuracy-in-The-Test-Dataset">Accuracy in The Test Dataset<a class="anchor-link" href="#Accuracy-in-The-Test-Dataset">&#182;</a></h2>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>Linear Regression with Lasso Results</th><th scope=col>Decision Tree Results</th><th scope=col>Random Forest Results</th><th scope=col>Result Stochastic Gradient Boosting Results</th></tr></thead>
+<tbody>
+	<tr><td>0.4750859</td><td>0.4914089</td><td>0.507732 </td><td>0.5146048</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Models got similar performance as achieved in the training dataset. Namely, it is hard to say that there is an over-fitting or under-fitting. Student Evaluation values can be described as nulti-classification problem, so having the worst performance measure both training and test data sets aren't a suprise for Linear Regression model. In addition to under/over-fitting, it can be said that error rates are consistent for both datasets, which can be observed looking the correlation between the results pf performance of the models in both dataset. Interestingly, all the models have more accuracy in the test dataset. However, accuracy can be bad performance measure for this type dataset(imbalance in the dataset) because by having a bias in the major part of the class, model still can get better accuracy at the end. The reason behind this fact occured from the formula of the Accuracy measurement. So, F1-Score or Recall can be more reasonable to compare the models.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Spam-Mail">Spam Mail<a class="anchor-link" href="#Spam-Mail">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Linear-Regression-with-Penalty">Linear Regression with Penalty<a class="anchor-link" href="#Linear-Regression-with-Penalty">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">lrp</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">prediction_pra_mae_spam_min</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test_spam</span><span class="o">$</span><span class="n">X1</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">lrp</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 538  33
+         1  20 130
+                                          
+               Accuracy : 0.9265          
+                 95% CI : (0.9049, 0.9445)
+    No Information Rate : 0.7739          
+    P-Value [Acc &gt; NIR] : &lt; 2e-16         
+                                          
+                  Kappa : 0.7838          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.09929         
+                                          
+              Precision : 0.9422          
+                 Recall : 0.9642          
+                     F1 : 0.9531          
+             Prevalence : 0.7739          
+         Detection Rate : 0.7462          
+   Detection Prevalence : 0.7920          
+      Balanced Accuracy : 0.8809          
+                                          
+       &#39;Positive&#39; Class : 0               
+                                          </pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[71]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">dtr</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">predicted_spam</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test_spam</span><span class="o">$</span><span class="n">X1</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">dtr</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 533  30
+         1  25 133
+                                         
+               Accuracy : 0.9237         
+                 95% CI : (0.9019, 0.942)
+    No Information Rate : 0.7739         
+    P-Value [Acc &gt; NIR] : &lt;2e-16         
+                                         
+                  Kappa : 0.7796         
+                                         
+ Mcnemar&#39;s Test P-Value : 0.5896         
+                                         
+              Precision : 0.9467         
+                 Recall : 0.9552         
+                     F1 : 0.9509         
+             Prevalence : 0.7739         
+         Detection Rate : 0.7393         
+   Detection Prevalence : 0.7809         
+      Balanced Accuracy : 0.8856         
+                                         
+       &#39;Positive&#39; Class : 0              
+                                         </pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[72]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">rfr</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">PredictRandomForest_spam</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test_spam</span><span class="o">$</span><span class="n">X1</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">rfr</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 547  18
+         1  11 145
+                                          
+               Accuracy : 0.9598          
+                 95% CI : (0.9427, 0.9729)
+    No Information Rate : 0.7739          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.8833          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.2652          
+                                          
+              Precision : 0.9681          
+                 Recall : 0.9803          
+                     F1 : 0.9742          
+             Prevalence : 0.7739          
+         Detection Rate : 0.7587          
+   Detection Prevalence : 0.7836          
+      Balanced Accuracy : 0.9349          
+                                          
+       &#39;Positive&#39; Class : 0               
+                                          </pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Stochastic-Gradient-Boosting">Stochastic Gradient Boosting<a class="anchor-link" href="#Stochastic-Gradient-Boosting">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[73]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">sgbr</span><span class="o">=</span><span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">predicted_spam_sgb</span><span class="p">),</span> <span class="n">reference</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">test_spam</span><span class="o">$</span><span class="n">X1</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s">&quot;prec_recall&quot;</span><span class="p">)</span>
+<span class="n">sgbr</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 545  16
+         1  13 147
+                                          
+               Accuracy : 0.9598          
+                 95% CI : (0.9427, 0.9729)
+    No Information Rate : 0.7739          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.8843          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.7103          
+                                          
+              Precision : 0.9715          
+                 Recall : 0.9767          
+                     F1 : 0.9741          
+             Prevalence : 0.7739          
+         Detection Rate : 0.7559          
+   Detection Prevalence : 0.7781          
+      Balanced Accuracy : 0.9393          
+                                          
+       &#39;Positive&#39; Class : 0               
+                                          </pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>By looking the Accuracy, it can be said that best performance are optained in the Random Forest and Stochastic Gradient Boosting. Indeed, these 2 model's performance is too similar, which can be understood by looking the Precision, Recall, and F1 score of the models. The biggest difference occurs in the precision and recall values of the model. So, main objective can determine which model must be used. Moreover, performance of the other two model is also similar. Indeed decision tree's approach is more proper for classification problems. The reason behind the similarity can be explained by complexity of the models. Namely, Decision Tree's complexity is less than constructed Linear Regression with lasso, but it still has similar performance compared to the other.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Conclusion-of-Models">Conclusion of Models<a class="anchor-link" href="#Conclusion-of-Models">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Linear-Regression-with-Penalty">Linear Regression with Penalty<a class="anchor-link" href="#Linear-Regression-with-Penalty">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Different Penalty types are tried in the glmnet package by using mean absolute percentage error and mean square error objective. In these 2 penalty, 3 different lambdas are tried to obtain a model. In addition, all the possible lambda values are checked by plotting the cv.glmnet() results. Predictions are made based on these models. Best model performance are observed in this test dataset. After all, caret() packages are used to make a model can be comparable with other method's models. Namely, caret library is used in all the methods to obtain similar report types. Penalized Regression Approach is made with 3 different lambda values. These are lambda.min, lambda.1se, and random a lambda value achieved in the previous cv.glmnet() process. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[74]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">lm_model</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>glmnet 
+
+2880 samples
+  57 predictor
+   2 classes: &#39;0&#39;, &#39;1&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 2592, 2592, 2592, 2592, 2592, 2592, ... 
+Resampling results across tuning parameters:
+
+  lambda        Accuracy   Kappa    
+  1.633465e-05  0.9309028  0.7962956
+  1.050003e-04  0.9309028  0.7960720
+  6.442722e-02  0.8225694  0.3270203
+
+Tuning parameter &#39;alpha&#39; was held constant at a value of 1
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were alpha = 1 and lambda = 0.0001050003.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Penalized-Regression-Approach">Best Model for Penalized Regression Approach<a class="anchor-link" href="#Best-Model-for-Penalized-Regression-Approach">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>alpha = 1, lambda = 0.0001050003 and MAE Penalty type</strong> is the best tuned parameter for this model for Spam Mail Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[82]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">lrp</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Accuracy 
+0.926491 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>6 different minbucket</strong> values are tried to get best model for Decision Tree. However, in caret library there is no available packages for rpart for tuning the minimal number of observation per tree leaf. So for loop is tried to get information related to effects in the change of number of variable in the tree leaf. In addition, all models tested with <strong>10 different cp value</strong>. After looking the created model's result, the best model is selected. The best Accuracy value is selected with considering the minbucket values and cp values. Selected model evaluated 1 more time and named as tr_last. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[86]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">tr_last</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>CART 
+
+2880 samples
+  57 predictor
+   2 classes: &#39;0&#39;, &#39;1&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 2592, 2592, 2592, 2592, 2592, 2592, ... 
+Resampling results across tuning parameters:
+
+  cp    Accuracy   Kappa    
+  0.00  0.9284722  0.7906848
+  0.01  0.9246528  0.7753364
+  0.02  0.9149306  0.7450010
+  0.03  0.9086806  0.7235983
+  0.04  0.9097222  0.7250175
+  0.05  0.9097222  0.7250175
+  0.06  0.9076389  0.7198955
+  0.07  0.9076389  0.7198955
+  0.08  0.9076389  0.7198955
+  0.09  0.8979167  0.6961644
+  0.10  0.8934028  0.6851602
+
+Accuracy was used to select the optimal model using the largest value.
+The final value used for the model was cp = 0.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Decision-Tree">Best Model for Decision Tree<a class="anchor-link" href="#Best-Model-for-Decision-Tree">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>cp=0 and minbucket = 10</strong> is the best tuned parameter for this model for Spam Mail Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[87]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">dtr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre> Accuracy 
+0.9237171 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As mentioned in the homework description, only mtry namely number of selected feature for model is modified. 4 different number is determined. Best model is achived the model with the 10 number of feature. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[88]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">rf_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Random Forest 
+
+2880 samples
+  57 predictor
+   2 classes: &#39;0&#39;, &#39;1&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 2592, 2592, 2592, 2592, 2592, 2592, ... 
+Resampling results across tuning parameters:
+
+  mtry  Accuracy   Kappa    
+   4    0.9475694  0.8420506
+   8    0.9538194  0.8625748
+  10    0.9545139  0.8654099
+  15    0.9527778  0.8597787
+
+Tuning parameter &#39;splitrule&#39; was held constant at a value of extratrees
+
+Tuning parameter &#39;min.node.size&#39; was held constant at a value of 5
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were mtry = 10, splitrule = extratrees
+ and min.node.size = 5.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Random-Forest">Best Model for Random Forest<a class="anchor-link" href="#Best-Model-for-Random-Forest">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>mtry=10</strong> is the best tuned parameter for this model for Spam Mail Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[89]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">rfr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre> Accuracy 
+0.9597781 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Stochastic-Gradient-Boosting">Stochastic Gradient Boosting<a class="anchor-link" href="#Stochastic-Gradient-Boosting">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Different 5 shrinkage value, 3 interaction.depth, 5 n.trees values</strong> are tried to obtain the best model. This model is the one which takes the most time to create the models. The reason behind this fact caused from number of tuned parameter in the approach. However, it has the best Accuracy value with Random Forest. Model results are as follows:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[90]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">gbm_fit</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>Stochastic Gradient Boosting 
+
+2880 samples
+  57 predictor
+   2 classes: &#39;0&#39;, &#39;1&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 1 times) 
+Summary of sample sizes: 2592, 2592, 2592, 2592, 2592, 2592, ... 
+Resampling results across tuning parameters:
+
+  shrinkage  interaction.depth  n.trees  Accuracy   Kappa    
+  0.1        1                   50      0.9267361  0.7729207
+  0.1        1                  100      0.9416667  0.8245584
+  0.1        1                  150      0.9447917  0.8349425
+  0.1        1                  200      0.9454861  0.8373744
+  0.1        1                  250      0.9451389  0.8367385
+  0.1        3                   50      0.9454861  0.8371056
+  0.1        3                  100      0.9500000  0.8522543
+  0.1        3                  150      0.9513889  0.8565429
+  0.1        3                  200      0.9517361  0.8579397
+  0.1        3                  250      0.9552083  0.8685325
+  0.1        5                   50      0.9493056  0.8495489
+  0.1        5                  100      0.9513889  0.8567872
+  0.1        5                  150      0.9527778  0.8609011
+  0.1        5                  200      0.9548611  0.8676870
+  0.1        5                  250      0.9538194  0.8647661
+  0.3        1                   50      0.9472222  0.8425043
+  0.3        1                  100      0.9468750  0.8420356
+  0.3        1                  150      0.9475694  0.8435273
+  0.3        1                  200      0.9496528  0.8511846
+  0.3        1                  250      0.9482639  0.8464367
+  0.3        3                   50      0.9486111  0.8482189
+  0.3        3                  100      0.9510417  0.8566427
+  0.3        3                  150      0.9503472  0.8546606
+  0.3        3                  200      0.9503472  0.8542272
+  0.3        3                  250      0.9513889  0.8578558
+  0.3        5                   50      0.9538194  0.8656637
+  0.3        5                  100      0.9545139  0.8682425
+  0.3        5                  150      0.9534722  0.8652767
+  0.3        5                  200      0.9545139  0.8679997
+  0.3        5                  250      0.9534722  0.8658951
+  0.5        1                   50      0.9451389  0.8375765
+  0.5        1                  100      0.9489583  0.8486332
+  0.5        1                  150      0.9472222  0.8434787
+  0.5        1                  200      0.9461806  0.8407719
+  0.5        1                  250      0.9489583  0.8503366
+  0.5        3                   50      0.9482639  0.8473022
+  0.5        3                  100      0.9496528  0.8539205
+  0.5        3                  150      0.9510417  0.8576333
+  0.5        3                  200      0.9534722  0.8642496
+  0.5        3                  250      0.9500000  0.8545526
+  0.5        5                   50      0.9527778  0.8613930
+  0.5        5                  100      0.9541667  0.8659682
+  0.5        5                  150      0.9496528  0.8520059
+  0.5        5                  200      0.9461806  0.8435420
+  0.5        5                  250      0.9409722  0.8310891
+
+Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 20
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were n.trees = 250, interaction.depth =
+ 3, shrinkage = 0.1 and n.minobsinnode = 20.</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Best-Model-for-Stochastic-Gradient-Boosting">Best Model for Stochastic Gradient Boosting<a class="anchor-link" href="#Best-Model-for-Stochastic-Gradient-Boosting">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>RMSE will be the objective parameter for evaluation of the model. In this perpective, <strong>n.trees = 250 interaction.depth =
+ 3, shrinkage = 0.1 and n.minobsinnode = 20</strong> is the best tuned parameter for this model for Spam Mail Dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[92]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">sgbr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre> Accuracy 
+0.9597781 
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Comparision-of-Results-in-Training-and-Test-Dataset">Comparision of Results in Training and Test Dataset<a class="anchor-link" href="#Comparision-of-Results-in-Training-and-Test-Dataset">&#182;</a></h1>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[103]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">train</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Linear Regression with Lasso Results&quot;</span><span class="o">=</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">lm_model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)],</span>
+            <span class="s">&quot;Decision Tree Results&quot;</span><span class="o">=</span>    <span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">tr_last</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)],</span>
+            <span class="s">&quot;Random Forest Results&quot;</span><span class="o">=</span>    <span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">rf_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)],</span>
+            <span class="s">&quot;Result Stochastic Gradient Boosting Results&quot;</span><span class="o">=</span>    <span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="n">gbm_fit</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">)])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Accuracy-in-The-Train-Dataset&#182;">Accuracy in The Train Dataset&#182;<a class="anchor-link" href="#Accuracy-in-The-Train-Dataset&#182;">&#182;</a></h2>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[104]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>Linear Regression with Lasso Results</th><th scope=col>Decision Tree Results</th><th scope=col>Random Forest Results</th><th scope=col>Result Stochastic Gradient Boosting Results</th></tr></thead>
+<tbody>
+	<tr><td>0.8225694</td><td>0.8934028</td><td>0.9475694</td><td>0.9267361</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[94]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">test</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Linear Regression with Lasso Results&quot;</span><span class="o">=</span><span class="n">lrp</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">],</span>
+            <span class="s">&quot;Decision Tree Results&quot;</span><span class="o">=</span>    <span class="n">dtr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">],</span>
+            <span class="s">&quot;Random Forest Results&quot;</span><span class="o">=</span>    <span class="n">rfr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">],</span>
+            <span class="s">&quot;Result Stochastic Gradient Boosting Results&quot;</span><span class="o">=</span>    <span class="n">sgbr</span><span class="o">$</span><span class="n">overall</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Accuracy-in-The-Test-Dataset">Accuracy in The Test Dataset<a class="anchor-link" href="#Accuracy-in-The-Test-Dataset">&#182;</a></h2>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[96]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+<thead><tr><th scope=col>Linear Regression with Lasso Results</th><th scope=col>Decision Tree Results</th><th scope=col>Random Forest Results</th><th scope=col>Result Stochastic Gradient Boosting Results</th></tr></thead>
+<tbody>
+	<tr><td>0.926491 </td><td>0.9237171</td><td>0.9597781</td><td>0.9597781</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Models got similar performance as achieved in the training dataset. Namely, it is hard to say that there is an over-fitting or under-fitting. Spam Estimation can be described as classification problem, so having the worst performance measure both training and test data sets aren't a suprise for Linear Regression model. In addition to under/over-fitting, it can be said that error rates are consistent for both datasets, which can be observed looking the correlation between the results pf performance of the models in both dataset. However, there is still some problems related to consistency. It can be understood by looking the how much performance measure are changed between the datasets. Interestingly, all the models have more accuracy in the test dataset. However, accuracy can be bad performance measure for this type dataset(imbalance in the dataset) because by having a bias in the major part of the class, model still can get better accuracy at the end. The reason behind this fact occured from the formula of the Accuracy measurement. So, F1-Score or Recall can be more reasonable to compare the models.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Final-Thoughts">Final Thoughts<a class="anchor-link" href="#Final-Thoughts">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It can be said that trees' performance is better than linear regression in classification problems, which can be observed for both binary and multi classification. In addition, Random Forest and Stochastic Gradient Boosting' performance are better than normal decision tree. This fact exist not only in classification problem but also in regression problems. Morever, the worst performance observed in the multinomial classification.</p>
+<p>For the Regression problems, the worst performance belongs to Decision Tree. The reason behind this fact can be explained by the nature of the algorithms. Namely, extrapolation doesn't exist in the Decision Tree, which makes it performance to worse. In addition, Random Forest and Stochastic Gradient Boosting models' performance is better than the other tree model. And in some cases, these models have better performance compared to Linear Regression with Lasso. Indeed, this situation can be occured because of different reasons. However, the major difference can be complexity difference between the model. In other words, Random Forest and Stochastic Gradient Boosting have more complex stucture(not over-fitting). This situation appears by looking the how much times passed in the creation of the model. To sum up, Linear Regression model's nature is more proper for regression problems and the better model can be obtained in the limited time period by Linear Regression.</p>
+<p>In addition to performance measure, Stochastic Gradient Boosting has more flexibility to tune its parameters. This fact can cause extra effort to obtain the optimal parameter combination. However, tuning is a good option for getting the best model at the end. In addition, computers' CPU and GPU performance is more advanced and cloud systems exist in the world, which makes this model to the better among the other models. In addition, I have a project related to this XGBOOST library. In this project, I got a lot of evidence related to having good performance of XGBOOST. This fact is approved one more time in this homework.</p>
+<p>Lastly, there is no problem related to overfitting. For some models(not too much complex) can have some underfitting problems in the training dataset. But still there is no solid evidence for this assumption. In addition, train error and test error of models have correlation. So, it can be said that all train and test datasets are consistent.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
