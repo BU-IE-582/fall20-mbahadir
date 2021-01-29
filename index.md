@@ -42,7 +42,7 @@ it is includes summarizations and comments related to obtained results.
 
 [here](Homework4\Homework4-Pisa_Reading_Score.html) is the HTML file for Pisa Reading Score Dataset 
 
-[here](Homework4\Homework4-General_Report.html) is the HTML file for General Report
+[here](Homework4\General_Report.html) is the HTML file for General Report
 
 [here](Homework4\Homework4.r) is the R Script for 4. Homeworks
 
