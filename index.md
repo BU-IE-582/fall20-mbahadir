@@ -34,13 +34,13 @@ All the Datasets are evaluated in different notebooks because it will be too lon
 another report is also added to observe final results of the models. All the conclusion is made in this report and 
 it is includes summarizations and comments related to obtained results.
 
-[here](Homework4\Homework4-Blog_Comment_Dataset.html) is the HTML file for Blog Comment Dataset 
+[here](Homework4\Homework4_Blog_Comment_Dataset.html) is the HTML file for Blog Comment Dataset 
 
-[here](Homework4\Homework4-Spam_Mail_Dataset.html) is the HTML file for Spam Mail Dataset
+[here](Homework4\Homework4_Spam_Mail_Dataset.html) is the HTML file for Spam Mail Dataset
 
-[here](Homework4\Homework4-Student_Evaluation.html) is the HTML file for Student Evaluation Dataset 
+[here](Homework4\Homework4_Student_Evaluation.html) is the HTML file for Student Evaluation Dataset 
 
-[here](Homework4\Homework4-Pisa_Reading_Score.html) is the HTML file for Pisa Reading Score Dataset 
+[here](Homework4\Homework4_Pisa_Reading_Score.html) is the HTML file for Pisa Reading Score Dataset 
 
 [here](Homework4\General_Report.html) is the HTML file for General Report
 
