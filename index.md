@@ -44,7 +44,7 @@ it is includes summarizations and comments related to obtained results.
 
 [here](Homework4\General_Report.html) is the HTML file for General Report
 
-[here](Homework4\Homework4.r) is the R Script for 4. Homeworks
+[here](Homework4\Homework4.R) is the R Script for 4. Homeworks
 
 ### Class Github Page
 

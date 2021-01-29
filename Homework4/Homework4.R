@@ -842,7 +842,7 @@ lasso_model_spam_mae_1se <- glmnet(train_mat_spam,result_vec_spam, family="binom
 lasso_model_spam_mae_10th <- glmnet(train_mat_spam,result_vec_spam,family="binomial", alpha = 1, lambda = cvfit_spam_mae$lambda[10], standardize = FALSE)
 
 plot(cvfit_spam_mae)
-
+getwd()
 cvfit_spam_mae$lambda.min
 
 cvfit_spam_mae$lambda.1se
