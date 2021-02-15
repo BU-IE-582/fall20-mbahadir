@@ -46,6 +46,15 @@ it is includes summarizations and comments related to obtained results.
 
 [here](Homework4\Homework4.R) is the R Script for 4. Homeworks
 
+## Project
+
+[here](Project\IE582_Project Report.html) is the HTML file for Project Report
+
+[here](https://github.com/mbahadir/582project_files) is the GitHub Repository for notebooks and scripts of the project. 
+Details of the codes can be found at the end of the report. 
+
+
+
 ### Class Github Page
 
 [IE 582](https://github.com/BU-IE-582)
